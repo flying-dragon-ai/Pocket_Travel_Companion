@@ -21,11 +21,21 @@ jobs:
       # peerDependency（^0.27||^0.28），而 lockfile 在 Windows 上生成时无法记录
       # Linux 平台的 @esbuild/* 可选包，npm ci 的严格校验会直接失败。
       # npm install 会在目标平台自行补齐，代价是失去 lockfile 的严格可复现性。
-      - name: Install dependencies
+      - name: Install frontend dependencies
         run: npm install --no-audit --no-fund
 
-      - name: Run quality checks
+      - name: Install backend dependencies
+        working-directory: backend-api
+        run: npm install --no-audit --no-fund
+
+      - name: Run frontend quality checks
         run: npm run lint && npm run type-check && npm run test:coverage && npm run deadcode:check
+
+      - name: Run backend quality checks
+        working-directory: backend-api
+        env:
+          NODE_ENV: test
+        run: npm run lint && npm test
 
       - name: Build WeChat Mini Program
         run: npm run build:mp-weixin
