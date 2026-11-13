@@ -1,0 +1,129 @@
+# travel-mini 项目AI开发规则（Cursor/Claude必须严格遵守）
+## 1. 项目核心约束
+- 技术栈：uni-app + Vue 3 + Vite + TypeScript，优先使用组合式API（setup语法糖）；
+- 业务边界：旅行类小程序→后续拓展APP，禁止硬编码小程序专属API（如wx.request），优先用uni-app跨端API；
+- 合规要求：接口必须HTTPS，适配微信小程序域名白名单，无充值/支付功能。
+
+## 2. 代码规范
+- 命名规则：文件/目录小写+连字符（如user-center.vue），组件名大驼峰（UserCenter.vue），变量/函数小驼峰；
+- 类型约束：所有工具函数、组件Props必须添加TS类型注解，禁止any类型；
+- 注释要求：核心业务逻辑（如GPS打卡、路线生成）必须加中文注释；
+- 性能要求：图片/接口懒加载，避免内存泄漏，适配APP端性能标准。
+
+## 3. 小程序专属规则
+- 单位统一使用rpx，适配不同屏幕尺寸；
+- 弹窗/提示使用uni.showToast/uni.showModal，替代小程序原生API；
+- GPS定位使用uni.getLocation，打卡校验距离≤500米；
+- 微信登录适配uni.login，获取openid后存储到本地。
+
+## 4. APP拓展适配规则
+- 预留原生插件目录：src/native-plugins/，兼容uni-app原生插件调用；
+- 状态管理使用Pinia，保证小程序/APP状态逻辑复用；
+- 避免依赖小程序特有组件（如wx-open-launch-app）。
+
+## 5. 构建与部署规则
+- 开发编译使用pnpm dev:mp-weixin，生产构建使用pnpm build:mp-weixin；
+- 产物目录dist/不提交到git，通过.gitignore忽略；
+- 类型校验必须通过pnpm type-check，无TS错误方可提交代码。
+
+### .dev.rule 文件内容
+该文件用于定义「口袋旅行搭子」小程序开发阶段的核心规则、约束和验收基准，采用 INI 格式分层管理，便于开发、测试、产品团队对齐标准。
+
+```ini
+[BASE]
+# 基础工程配置
+app_name = 口袋旅行搭子
+min_wechat_version = 8.0.20  # 最低兼容微信版本
+runtime_framework = uniapp/vue3  # 技术栈
+code_encoding = UTF-8
+asset_prefix = /static/  # 静态资源前缀
+
+[NAVIGATION]
+# 底部导航栏规则
+tab_count = 3
+tab_names = 探索,路径,我的
+tab_icons = explore.png,path.png,my.png  # 图标文件命名规范
+tab_default = 探索  # 默认选中Tab
+tab_keep_alive = true  # 保持Tab页状态
+
+[BEAN_SYSTEM]
+# 豆子系统核心规则
+weekly_bean_issue = 100  # 每周一发放豆子数
+bean_max_limit = 200  # 豆子累计上限
+generate_route_cost = 40  # 生成路线消耗豆子
+import_link_cost = 40  # 导入链接消耗豆子
+checkin_reward = 10  # 打卡奖励豆子
+comment_reward = 10  # 评论奖励豆子
+update_mood_reward = 5  # 更新情绪奖励豆子
+bean_issue_time = 00:00  # 每周一发放时间
+bean_failure_refund = true  # 生成失败自动退款
+
+[MOOD_MAP]
+# 情绪地图规则
+question_count = 7  # 问答总数
+skip_allowed = true  # 允许跳过问答
+mood_update_cooling = 1d  # 每日仅可领一次更新奖励
+mood_expire_days = 7  # 7天未更新触发提示
+mood_tags_weight = high  # 情绪标签权重高于普通标签
+quick_adjust_support = true  # 支持快速调整情绪
+full_retest_support = true  # 支持完整重测
+
+[ROUTE_GENERATE]
+# 路线生成规则
+max_days = 7  # 最大行程天数
+min_days = 0.5  # 最小行程天数(半天)
+poi_color_mapping = 热门商圈:red,安静治愈:green,拍照出片:yellow
+rag_enable = true  # 启用RAG能力
+emotion_impact = true  # 情绪标签影响路线生成
+import_link_support = 小红书,抖音,微信公众号  # 支持的链接类型
+generate_timeout = 10s  # 路线生成超时时间
+
+[CHECKIN]
+# 打卡规则
+gps_validate_range = 500m  # GPS校验最大距离
+max_photos = 3  # 最多上传照片数
+daily_checkin_limit = 1  # 单景点每日打卡次数
+dry_tags = 最佳机位,周边觅食,便民攻略,避坑指南  # 必选干货标签
+checkin_reward_cooling = 1d  # 单景点每日仅一次奖励
+
+[NFC]
+# NFC玩偶规则
+animation_duration = 1500ms  # 加载动画时长
+animation_text = 你的旅行搭子正在向你走来...
+nfc_scheme = weixin://dl/business/?t=xxxxxx  # 小程序URL Scheme占位
+doll_theme = 地方美食,景点建筑,传统吉祥事物  # 玩偶主题范围
+wakeup_page = /pages/path/path  # NFC唤起目标页
+
+[SHARE]
+# 分享功能规则
+share_image_include = 路线/景点名称,预览图,搭子形象,小程序码
+share_support = 保存相册,微信好友,朋友圈
+qr_code_expire = 永久  # 小程序码有效期
+share_page_support = 路线预览,路线详情,景点详情  # 支持分享的页面
+
+[EXCEPTION]
+# 异常处理规则
+bean_insufficient_tips = 豆子不足40，可通过打卡/评论/更新情绪获取，或等待周一发放
+gps_validate_fail_tips = 你离景点还有点远哦,到达后再打卡吧
+duplicate_operate_tips = 今日已{operate}该景点  # {operate}替换为打卡/评论
+api_fail_retry = 3  # API失败重试次数
+link_parse_fail_tips = 解析失败，请检查链接或手动生成路线
+
+[ACCEPTANCE]
+# 验收核心基准
+base_tab_display = true  # 底部3Tab正确显示
+mood_prompt_display = true  # 7天未更新情绪显示提示
+route_generate_cost = true  # 生成路线扣40豆子
+checkin_gps_validate = true  # 打卡GPS校验生效
+nfc_wakeup_animation = true  # NFC唤起动画正常播放
+rag_route_relevance = high  # 路线与情绪/标签高度相关
+official_content_preload = true  # TOP50景点预埋官方评论
+```
+
+### 文件说明
+1. 分层逻辑：按「基础配置→核心业务→功能规则→异常处理→验收基准」分层，覆盖开发全流程；
+2. 占位符说明：`nfc_scheme` 需替换为实际小程序URL Scheme，`{operate}` 为动态替换变量；
+3. 数值规范：时间/距离单位统一（ms/秒、m/米、d/天），便于开发落地；
+4. 扩展能力：可根据开发阶段补充「接口地址」「测试账号」「埋点规则」等子节点。
+
+该文件可作为开发规范文档直接接入项目，也可结合自动化测试脚本读取规则值，实现规则驱动的测试验证。

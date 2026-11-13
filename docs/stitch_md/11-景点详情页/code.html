@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>景点详情 - 情绪治愈之旅</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#005313",
+                        "primary-fixed-dim": "#ffb598",
+                        "outline": "#8b7268",
+                        "error-container": "#ffdad6",
+                        "photo-yellow": "#FFC107",
+                        "surface-container-low": "#fff1ec",
+                        "tertiary-fixed": "#ffe16d",
+                        "surface-variant": "#f4ded6",
+                        "secondary-fixed": "#94f990",
+                        "secondary-container": "#91f78e",
+                        "on-secondary-container": "#00731e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#241915",
+                        "surface-container-high": "#fae4dc",
+                        "on-error-container": "#93000a",
+                        "primary": "#a53c02",
+                        "tertiary": "#705d00",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "error": "#ba1a1a",
+                        "background": "#fff8f6",
+                        "quiet-blue": "#E3F2FD",
+                        "primary-fixed": "#ffdbce",
+                        "on-tertiary-container": "#453800",
+                        "bean-brown": "#8D6E63",
+                        "surface-bright": "#fff8f6",
+                        "on-primary-fixed-variant": "#7e2c00",
+                        "on-primary-fixed": "#370e00",
+                        "surface-container-highest": "#f4ded6",
+                        "secondary-fixed-dim": "#78dc77",
+                        "surface": "#fff8f6",
+                        "stress-red": "#FF5252",
+                        "outline-variant": "#dfc0b5",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-background": "#241915",
+                        "inverse-primary": "#ffb598",
+                        "warm-orange": "#FFF3E0",
+                        "secondary": "#006e1c",
+                        "surface-dim": "#ebd6ce",
+                        "inverse-on-surface": "#ffede7",
+                        "primary-container": "#ff7e45",
+                        "on-primary-container": "#682300",
+                        "on-primary": "#ffffff",
+                        "background-subtle": "#F8F9FA",
+                        "on-secondary-fixed": "#002204",
+                        "on-error": "#ffffff",
+                        "surface-container": "#ffe9e2",
+                        "on-secondary": "#ffffff",
+                        "healing-green": "#E8F5E9",
+                        "text-primary": "#2D3436",
+                        "tertiary-container": "#bfa100",
+                        "surface-card": "#FFFFFF",
+                        "surface-tint": "#a53c02",
+                        "on-surface-variant": "#57423a",
+                        "text-secondary": "#636E72",
+                        "inverse-surface": "#3b2e29"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-grid": "12px",
+                        "card-padding": "16px",
+                        "stack-tight": "8px",
+                        "section-gap": "24px",
+                        "margin-page": "16px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Be Vietnam Pro"],
+                        "stat-bean": ["Be Vietnam Pro"],
+                        "label-caps": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "stat-bean": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-lg": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-background min-h-screen">
+<!-- Top AppBar -->
+<header class="sticky top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-lg shadow-sm flex justify-between items-center px-4 h-16">
+<button class="active:scale-90 duration-200 hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-[#FF7E45] dark:text-[#FF8E5E]">arrow_back</span>
+</button>
+<h1 class="font-['Be_Vietnam_Pro'] font-semibold text-lg text-[#FF7E45] dark:text-[#FF8E5E]">景点详情</h1>
+<button class="active:scale-90 duration-200 hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-[#FF7E45] dark:text-[#FF8E5E]">share</span>
+</button>
+</header>
+<main class="pb-32">
+<!-- Hero Banner Section -->
+<section class="relative w-full h-[360px] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Lush forest with sunlight filtering through emerald green leaves, creating a mystical and serene atmosphere for emotional healing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuAOK6pQxbU9f9Qfm5Z6B4Q2FVjSSolAXPJgN7PUYkq1XcKaAk_rEb2WSkEPlSydsL6eiJL7P7azkR6OEbcMsWa7ZZo9-mGqgY8OELg1NUcYKq05ZPdSKixcuB6aivx8dL8ZI-QvayuP30SYEec9bzdNaP-y59DMjbAJGL9z-HMiN0Nn9X6XtdxuIJ5Z50s2Ch5X34j4M8Si5uluDIzQW2o_dcQlXkkiqa1S7jmQOhF43Pq_tjGI0YZj5lXi0PBa-gYaOuhsLF_lc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<!-- Emotional Tags Overlay -->
+<div class="absolute bottom-6 left-4 flex gap-2">
+<span class="px-4 py-1.5 bg-healing-green/90 backdrop-blur-md rounded-full text-secondary font-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">psychology</span> #治愈
+                </span>
+<span class="px-4 py-1.5 bg-quiet-blue/90 backdrop-blur-md rounded-full text-primary font-label-caps flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">eco</span> #解压
+                </span>
+</div>
+</section>
+<!-- Core Info Section -->
+<section class="relative -mt-8 px-margin-page">
+<div class="bg-surface-card rounded-[2rem] p-card-padding shadow-sm border border-text-secondary/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="font-headline-xl text-text-primary mb-1">静谧之森自然公园</h2>
+<div class="flex items-center text-text-secondary gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-body-md">上海市闵行区林荫大道 128 号</span>
+</div>
+</div>
+<button class="w-12 h-12 rounded-full bg-primary-container/20 text-primary-container flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-location="Shanghai">directions</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pt-4 border-t border-outline-variant">
+<div class="px-3 py-1 bg-healing-green text-on-secondary-container rounded-lg text-label-caps flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                        营业中
+                    </div>
+<span class="text-body-md text-text-secondary">09:00 - 21:00</span>
+</div>
+</div>
+</section>
+<!-- Advanced Info Bento -->
+<section class="px-margin-page mt-section-gap grid grid-cols-2 gap-gutter-grid">
+<!-- Visit Time -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-lg">schedule</span>
+<span class="font-label-caps">建议游玩</span>
+</div>
+<div class="font-stat-bean text-on-surface">1.5 <span class="text-body-md font-normal">小时</span></div>
+</div>
+<!-- Ticket Info -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-tertiary-container">
+<span class="material-symbols-outlined text-lg">payments</span>
+<span class="font-label-caps">门票信息</span>
+</div>
+<div class="font-stat-bean text-on-surface">免费 <span class="text-body-md font-normal">入园</span></div>
+</div>
+<!-- Crowd Heatmap -->
+<div class="col-span-2 bg-surface-card border border-text-secondary/10 rounded-2xl p-card-padding">
+<div class="flex justify-between items-center mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-stress-red">equalizer</span>
+<span class="font-headline-lg text-text-primary">实时客流</span>
+</div>
+<span class="text-label-caps text-text-secondary">当前: 舒适</span>
+</div>
+<!-- Heatmap Placeholder -->
+<div class="h-8 w-full bg-gradient-to-r from-healing-green via-warm-orange to-stress-red rounded-full relative overflow-hidden">
+<div class="absolute left-[35%] top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full border-2 border-primary shadow-md"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] text-text-secondary font-medium">
+<span>空闲</span>
+<span>适中</span>
+<span>拥挤</span>
+</div>
+</div>
+<!-- Booking Section -->
+<div class="col-span-2 bg-warm-orange rounded-2xl p-card-padding flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary">event_available</span>
+<span class="font-headline-lg text-on-primary-container">预约指南</span>
+</div>
+<p class="text-body-md text-on-primary-container opacity-80">官方小程序 · 当天可约</p>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-xl font-body-lg shadow-lg active:scale-95 transition-transform">
+                    去预约
+                </button>
+</div>
+</section>
+<!-- Peer Reviews Section -->
+<section class="mt-section-gap px-margin-page">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-lg text-text-primary flex items-center gap-2">
+                    同频评价
+                    <span class="text-body-md font-normal text-text-secondary">(128)</span>
+</h3>
+<button class="text-primary font-label-caps flex items-center gap-1">
+                    全部同好 <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="space-y-4">
+<!-- Review Card 1 -->
+<div class="bg-white rounded-2xl p-4 shadow-sm border border-stone-100">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Close-up portrait of a smiling young woman with warm lighting, looking peaceful and relaxed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRe7vX_ucA2m-42y_Kf7pB3pDTTD5PybrisOHTxxhKmW3mug_jly0UAea7dw6tTlrP6_t8uEmcxEqwSOqVW_QhjO8_Bsuf_Lh_OA8T1MEfiCDCk7n9L8CtV5R6tIjwsH_p2ruelqnf1vwmxXOgps7GcFZmcAQGi4-4pjAU10eKZ2EBz49xE-wtauytiPq9okIxJyPWjpuptP_IGh-CvZkBkzsE46uUNOWS9gREEEk6Y_mBOTuL11T76sYiaUpqSS6fap_4RqoLycM"/>
+<div>
+<div class="font-body-lg text-text-primary">悠悠兔</div>
+<div class="text-[10px] text-text-secondary">同标签：#治愈</div>
+</div>
+</div>
+<button class="flex items-center gap-1 text-text-secondary">
+<span class="material-symbols-outlined text-lg">favorite</span>
+<span class="text-label-caps">24</span>
+</button>
+</div>
+<p class="text-body-md text-on-surface-variant mb-3 leading-relaxed">
+                        真的很适合周末来发呆。在这里坐了一下午，感觉所有的压力都被森林吸收了。强烈推荐这里的草坪，躺着非常舒服！🌱
+                    </p>
+<div class="grid grid-cols-3 gap-2">
+<img class="aspect-square w-full rounded-lg object-cover" data-alt="Sunbeams streaming through dense forest canopy onto a vibrant green forest floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhV6vq2U9al_f5ivb0JmMlr_D1sm68A3t55gij5wIQuHSvTPlQp5E_GubFxuObdIG00ZdiyKzVsyiQx8t-EbnoA-ihR4gDFJfn6ZUStTZwXa5inwxQsuE5mc_UjZmR-uBQ0CMZuP2Rf27AZrw2-Kw6ejcX_evg6BR8qJpDaPjHUxEaPAJg2esWQqRGlKZ3DY67_1TTR5r6ZB5JIPXpCwnq7vQs9HGIj0IyPP4wUPH5_jOj1QQoKuCf62aE8IRRCZxbOIXPkHMy-Fo"/>
+<img class="aspect-square w-full rounded-lg object-cover" data-alt="Detailed close-up of lush green moss and small woodland plants in soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ0q6TSnLThjKIA_IvMp-2Kd7ge_jlks2pvu9FwonsrarL2Q0r8B7RGxduf9_TW2jA9PNIFtKUZPoSPalzu2sD_tdKEZ2J0PxTrIDWm-Rfnipq9yhsNUGv3AzJuzT3ATDtprFKsT3eHL3lLsfJGM8_4f3q4D1YQzwkg4vwz11iYNBYb6blO1NdoFcwJ9lcn7HXBU2qsecPHofckL-n1DA9ynXh-KkzguirNmKJn1Ts3GU43DK0AajNVc1gkvNUsmb7AIL7GZxUY0U"/>
+<img class="aspect-square w-full rounded-lg object-cover" data-alt="Scenic view of a winding path through a golden autumn forest with soft bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMlJqV8ORcq-Alsw1MruwxCCe4oT_uMGDRvn1i34GQAHANfkkuhHaoXxh3xwBS6iLHGLlYRlsEZ_Myfwlc87FLBEunP8jIFih-R2_39hE1rDEoAGK4Sb43-ubSLqhMJqnwF64BiGB8L-WCK1DBJJQQrPYBxHOH86kgBCiOgfYir8wGsU6nC_MOU-XoSbd1UEKqah1q-TUbjX_GBnPg0NDxTm_MI8jHDbqzAtiO7f_wIO35gUvynk5qrkqYhVg6W4a6ExioMTohrRo"/>
+</div>
+</div>
+<!-- Review Card 2 -->
+<div class="bg-white rounded-2xl p-4 shadow-sm border border-stone-100">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a young man with a gentle expression in soft natural outdoor lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh_htCR4l35lNXgP6CRV4WYeEYzFTySK9PBNip6cuggNpA4ex1awlEK1uC0d5MqRUytoI3JjOmVIdloEiOvDd7dulan75Wl8LLLkhkgIqeYHILT5RxeyQ5RHiGl-IyRr_f2v1a4wuS_EZZYsHo5fOxeFSU6Ljz6v2KM4PJj5k8dD1wfFN9eYvEh-Ta9WMolm_yN7LUUd6TQ9EWR2MoSkqabJOtOrIfMQXY8PX8LDjIg3uvF638ZgjsggQhwiyIVYt2cl_vmhnqedA"/>
+<div>
+<div class="font-body-lg text-text-primary">阿强呀</div>
+<div class="text-[10px] text-text-secondary">同标签：#解压</div>
+</div>
+</div>
+<button class="flex items-center gap-1 text-text-secondary">
+<span class="material-symbols-outlined text-lg">favorite</span>
+<span class="text-label-caps">18</span>
+</button>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                        人流量控制得很好，即使是周末也不会觉得嘈杂。预约很方便，拍照也很出片，那个咖啡厅一定要去。
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Action Button Footer -->
+<div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-background to-transparent pointer-events-none">
+<button class="pointer-events-auto w-full h-16 bg-primary-container text-white rounded-[2rem] flex items-center justify-center gap-3 shadow-[0_12px_24px_-8px_rgba(255,126,69,0.5)] active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-headline-lg">📍 打卡拍照</span>
+<span class="bg-white/20 px-3 py-1 rounded-full text-label-caps">+10 豆子</span>
+</button>
+</div>
+</body></html>

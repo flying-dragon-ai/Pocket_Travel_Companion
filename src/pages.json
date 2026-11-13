@@ -1,0 +1,112 @@
+{
+  "pages": [
+    {
+      "path": "pages/explore/explore",
+      "style": {
+        "navigationBarTitleText": "探索"
+      }
+    },
+    {
+      "path": "pages/path/path",
+      "style": {
+        "navigationBarTitleText": "路径"
+      }
+    },
+    {
+      "path": "pages/profile/profile",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/mood-qa/mood-qa",
+      "style": {
+        "navigationBarTitleText": "情绪问答"
+      }
+    },
+    {
+      "path": "pages/loading/loading",
+      "style": {
+        "navigationBarTitleText": "旅行搭子"
+      }
+    },
+    {
+      "path": "pages/route-preview/route-preview",
+      "style": {
+        "navigationBarTitleText": "路线预览"
+      }
+    },
+    {
+      "path": "pages/route-detail/route-detail",
+      "style": {
+        "navigationBarTitleText": "路线详情"
+      }
+    },
+    {
+      "path": "pages/spot-detail/spot-detail",
+      "style": {
+        "navigationBarTitleText": "景点详情"
+      }
+    },
+    {
+      "path": "pages/checkin-photo/checkin-photo",
+      "style": {
+        "navigationBarTitleText": "打卡拍照"
+      }
+    },
+    {
+      "path": "pages/comments-all/comments-all",
+      "style": {
+        "navigationBarTitleText": "全部评论"
+      }
+    },
+    {
+      "path": "pages/bean-log/bean-log",
+      "style": {
+        "navigationBarTitleText": "豆子明细"
+      }
+    },
+    {
+      "path": "pages/message/message",
+      "style": {
+        "navigationBarTitleText": "互动消息"
+      }
+    },
+    {
+      "path": "pages/tag-setting/tag-setting",
+      "style": {
+        "navigationBarTitleText": "标签设置"
+      }
+    },
+    {
+      "path": "pages/share-generate/share-generate",
+      "style": {
+        "navigationBarTitleText": "分享图生成"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF7D00",
+    "list": [
+      {
+        "pagePath": "pages/explore/explore",
+        "text": "探索"
+      },
+      {
+        "pagePath": "pages/path/path",
+        "text": "路径"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "口袋旅行搭子",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#F5F5F5"
+  }
+}

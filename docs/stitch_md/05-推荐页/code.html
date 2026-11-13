@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#ffb598",
+                    "on-primary": "#ffffff",
+                    "healing-green": "#E8F5E9",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#57423a",
+                    "secondary-fixed": "#94f990",
+                    "inverse-surface": "#3b2e29",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#91f78e",
+                    "text-secondary": "#636E72",
+                    "on-primary-fixed-variant": "#7e2c00",
+                    "on-primary-container": "#682300",
+                    "on-secondary-container": "#00731e",
+                    "on-tertiary-container": "#453800",
+                    "surface-container": "#ffe9e2",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#ff7e45",
+                    "primary-fixed-dim": "#ffb598",
+                    "background-subtle": "#F8F9FA",
+                    "on-tertiary-fixed": "#221b00",
+                    "text-primary": "#2D3436",
+                    "secondary": "#006e1c",
+                    "error-container": "#ffdad6",
+                    "bean-brown": "#8D6E63",
+                    "outline": "#8b7268",
+                    "on-surface": "#241915",
+                    "surface-variant": "#f4ded6",
+                    "on-background": "#241915",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#002204",
+                    "background": "#fff8f6",
+                    "surface-bright": "#fff8f6",
+                    "on-secondary-fixed-variant": "#005313",
+                    "tertiary-fixed": "#ffe16d",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "stress-red": "#FF5252",
+                    "warm-orange": "#FFF3E0",
+                    "surface": "#fff8f6",
+                    "photo-yellow": "#FFC107",
+                    "on-secondary": "#ffffff",
+                    "primary": "#a53c02",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-card": "#FFFFFF",
+                    "outline-variant": "#dfc0b5",
+                    "tertiary-container": "#bfa100",
+                    "tertiary": "#705d00",
+                    "secondary-fixed-dim": "#78dc77",
+                    "on-primary-fixed": "#370e00",
+                    "inverse-on-surface": "#ffede7",
+                    "surface-container-high": "#fae4dc",
+                    "surface-dim": "#ebd6ce",
+                    "quiet-blue": "#E3F2FD",
+                    "surface-container-highest": "#f4ded6",
+                    "surface-container-low": "#fff1ec",
+                    "surface-tint": "#a53c02",
+                    "primary-fixed": "#ffdbce"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "card-padding": "16px",
+                    "gutter-grid": "12px",
+                    "stack-tight": "8px",
+                    "unit": "4px",
+                    "section-gap": "24px",
+                    "margin-page": "16px"
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: 0;
+            width: 2px;
+            border-left: 2px dashed #dfc0b5;
+        }
+        .bean-float {
+            filter: drop-shadow(0 2px 4px rgba(165, 60, 2, 0.2));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased">
+<div class="relative flex min-h-screen w-full flex-col bg-surface group/design-root overflow-x-hidden max-w-md mx-auto border-x border-outline-variant">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center bg-surface/90 backdrop-blur-md px-margin-page py-4 justify-between border-b border-surface-container">
+<div class="text-on-surface flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-surface-container transition-colors" data-icon="arrow_back">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-on-surface text-headline-lg flex-1 text-center pr-10">路线预览</h2>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- Map Snippet -->
+<div class="px-margin-page py-6">
+<div class="relative w-full aspect-[21/9] bg-surface-dim rounded-xl overflow-hidden border border-outline-variant/20 shadow-sm">
+<img class="w-full h-full object-cover opacity-80" data-alt="Stylized minimalist map of urban streets with a soft orange and green path line indicating the travel route" data-location="Shanghai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJSbDaSpOwFOwQfNcJ8opihu3An80lYLidjAyPCrSMpzUJUE0eikGyvp_DQhDt2qbttgdi1d7y8qTE-2pISWikieEp9nrKsY8BfoPq1UAqdeXcDja5RDLDGcDEfdz21FHOsSDwhCA9Z3S8wPAsdtjBf2WSvGxUj917LEo4jaliQTIMdrAny5qjEllxnAs8dNiTfYfdb7Ac9wpPr5_VveLZJLHtaJ6BIr5JZY_BHUfmfsimBfcFnHwMYwjES56q4nTofLnpVzxcbpA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/40 to-transparent"></div>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-outline-variant/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="text-xs font-semibold text-on-surface">上海 · 静安区</span>
+</div>
+</div>
+</div>
+<!-- Timeline Section -->
+<section class="px-margin-page">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-on-surface text-headline-lg">路线规划</h3>
+<span class="text-on-surface-variant text-xs bg-surface-container-lowest px-2 py-1 rounded border border-outline-variant/20">预览模式</span>
+</div>
+<div class="flex flex-col">
+<!-- Timeline Item 1 -->
+<div class="relative flex gap-4 timeline-line pb-4">
+<div class="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary ring-4 ring-surface">
+<span class="material-symbols-outlined text-[14px] text-on-primary" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="flex flex-1 flex-col gap-2 bg-surface-container-low p-3 rounded-xl border border-outline-variant/10 shadow-sm">
+<div class="flex gap-3">
+<div class="size-16 shrink-0 overflow-hidden rounded-lg">
+<img alt="Morning Glow Cafe" class="h-full w-full object-cover" data-alt="Cozy interior of a minimalist cafe with warm wooden furniture, sunlight streaming through large windows and a single coffee cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVa7JVeAqOGNS9WDt-3njttodkLVOQ_BVpkDh3zPQ3BHa5HiQInmsjE8O9u3djIUwe1nDgxOQ92L9M80ZcBzPOVfhoZwvmCF70nK0QNElfrYNk8gFSjYpzrA_TGQtfK7lNZ22mX74Oj1JI_kwL8sId9nI3kKL-Tk5vIZTyRwTJ76jN7Pn2WD7bAjZsKp_3qzYJGHri8rwO8N6wYNGhz2NsK7DMrFIiYgzqTpqjvDoREPCzFPG7c8HmLMl2_TuMC1gaAVhdDYEHTOA"/>
+</div>
+<div class="flex flex-col justify-between py-0.5">
+<h4 class="text-on-surface font-bold text-body-lg">Morning Glow Cafe</h4>
+<div class="flex gap-2 flex-wrap">
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-warm-orange text-primary font-medium">#Healing</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-quiet-blue text-on-surface-variant font-medium">#Quiet</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs leading-relaxed">静安区最温柔的一抹晨光，适合在这里发呆一整个上午。</p>
+</div>
+</div>
+<!-- Hidden Bean Indicator -->
+<div class="relative flex gap-4 pl-1 ml-[11px] h-10 items-center">
+<div class="absolute left-[-1px] top-0 bottom-0 border-l-2 border-dashed border-outline-variant"></div>
+<div class="flex items-center gap-2 bg-surface-container-highest/50 px-3 py-1.5 rounded-full border border-primary/20 ml-4 mb-2 animate-pulse">
+<div class="size-5 bg-primary-container rounded-full flex items-center justify-center bean-float">
+<span class="text-[12px]">🫘</span>
+</div>
+<span class="text-[11px] text-on-primary-container font-semibold">附近有「隐藏豆子」掉落</span>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative flex gap-4 timeline-line pb-4">
+<div class="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary ring-4 ring-surface">
+<span class="material-symbols-outlined text-[14px] text-on-secondary" style="font-variation-settings: 'FILL' 1;">park</span>
+</div>
+<div class="flex flex-1 flex-col gap-2 bg-surface-container-low p-3 rounded-xl border border-outline-variant/10 shadow-sm">
+<div class="flex gap-3">
+<div class="size-16 shrink-0 overflow-hidden rounded-lg">
+<img alt="Healing Forest Path" class="h-full w-full object-cover" data-alt="Winding paved path through a lush green park with tall ancient trees and dappled sunlight on the ground" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvADEbReDCW3BFKbP1qkeMeajvz6ovnCfRwCePgK9vKJolsfQhF28NRYjXi5fDSf6ZKCVQLqNkspp5RmtBK5lZTovFIH2FzZEifFp68I8IK6z5Ab3UXMXoUt7g1mkB7p_5piqyG3ZVJqNUCH37r0yoxTt58R1i43F7mZ19tHm0tRKxcfzfyxEYlcmAlw7Q45V7WeXZzsaEFxMPHKVFacZ-Y9CUkTy0Nk-hPzjdE12oeT8ys3zWQLYZDoYGZKhyIDZ4ggyxMi1Z4aI"/>
+</div>
+<div class="flex flex-col justify-between py-0.5">
+<h4 class="text-on-surface font-bold text-body-lg">城市治愈绿道</h4>
+<div class="flex gap-2 flex-wrap">
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-healing-green text-secondary font-medium">#Relaxing</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-warm-orange text-primary font-medium">#Walk</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs leading-relaxed">在钢筋水泥中找寻一片森林，听听风穿过树叶的声音。</p>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative flex gap-4 pb-4">
+<div class="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tertiary ring-4 ring-surface">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary" style="font-variation-settings: 'FILL' 1;">palette</span>
+</div>
+<div class="flex flex-1 flex-col gap-2 bg-surface-container-low p-3 rounded-xl border border-outline-variant/10 shadow-sm">
+<div class="flex gap-3">
+<div class="size-16 shrink-0 overflow-hidden rounded-lg">
+<img alt="Art Space" class="h-full w-full object-cover" data-alt="Minimalist art gallery interior with a single abstract painting on a clean white wall and soft overhead lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANz_n9XMq9JFDWqKK8Um-rONGNYl7xD1bpFc0e1q-2wU_AUzWk4P4NltNEGPX0xBFsebbto9RL2LZp-Mnau82mS2c_yCLhQ7AlXHmjKk0pae3njxyVfnPnYv2Bjs9otLX3MV1O_d-eTE9qWLxi83Zpstf9jv1Dt8GIS_ThWef5rhNun87NTBtVj_6m11_LHzUhKuETuVn2DYKTY8PHHqlxHdSvwJQpvYb7PCnMqthHv8J7mfDt3XpB-elojIV_jUOeuL8TWQjOjjQ"/>
+</div>
+<div class="flex flex-col justify-between py-0.5">
+<h4 class="text-on-surface font-bold text-body-lg">无名艺术空间</h4>
+<div class="flex gap-2 flex-wrap">
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-medium">#Art</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-quiet-blue text-on-surface-variant font-medium">#Inspiration</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs leading-relaxed">最近正在进行“情绪颗粒”主题展，非常适合一个人静静欣赏。</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Section: Inspiration & Action -->
+<footer class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-surface/95 backdrop-blur-xl p-margin-page border-t border-surface-container-high shadow-[0_-10px_20px_-15px_rgba(0,0,0,0.1)] z-50">
+<div class="flex flex-col gap-4">
+<!-- Inspiration Tip -->
+<div class="flex items-start gap-3 bg-warm-orange/40 p-3 rounded-xl border border-warm-orange">
+<div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-warm-orange text-primary">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-xs font-bold text-on-primary-fixed-variant">灵感贴士</span>
+<p class="text-on-surface-variant text-[11px] leading-snug">这条路线结合了你当前的“工作压力大”情绪，特意避开了人流拥挤的网红路段。</p>
+</div>
+</div>
+<!-- Adopt Button -->
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">auto_fix_high</span>
+<span>采纳灵感，消耗 40 豆子</span>
+<div class="ml-1 px-1.5 py-0.5 bg-white/20 rounded-md text-[10px] flex items-center gap-1">
+<span>🫘</span>
+<span>-40</span>
+</div>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

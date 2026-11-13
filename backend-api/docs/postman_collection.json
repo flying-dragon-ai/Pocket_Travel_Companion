@@ -1,0 +1,126 @@
+{
+  "info": {
+    "name": "Pocket Travel Companion API",
+    "_postman_id": "fdb3457a-3a0d-4af2-8860-1c2d0c08f274",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "契约说明：评论点赞保持幂等，重复点赞返回当前 likeCount 且不重复累加；路线生成/链接导入仅成功扣 40 豆，失败不扣豆，后端内部 run/trace 不对前端暴露；分享 poster metadata/checkinId 为后端内部增强，不改变公开响应字段；notifications 当前仅为数据层预留，本轮无公开 API。"
+  },
+  "item": [
+    {
+      "name": "Auth - Wechat Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/v1/auth/wechat/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"code\":\"mock-code\",\"nickname\":\"测试用户\"}"
+        }
+      }
+    },
+    {
+      "name": "Mood - Submit",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{baseUrl}}/api/v1/mood-map/submit",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"answers\":[{\"questionNo\":1,\"values\":[\"独自一人\"]}]}"
+        }
+      }
+    },
+    {
+      "name": "Route - Generate",
+      "description": "成功创建路线后扣 40 豆；生成失败不扣豆，错误响应如包含 consumedBeans 则为 0。后端内部 run/trace 仅用于排障和审计，不作为前端响应字段暴露。",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{baseUrl}}/api/v1/routes/generate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"city\":\"上海\",\"dayMode\":\"one_day\",\"spotPreferences\":[\"公园\"]}"
+        }
+      }
+    },
+    {
+      "name": "Route - Import Link",
+      "description": "成功解析并创建路线后扣 40 豆；解析失败不扣豆，错误响应如包含 consumedBeans 则为 0。后端内部 run/trace 仅用于排障和审计，不作为前端响应字段暴露。",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{baseUrl}}/api/v1/routes/import-link",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"url\":\"https://example.com/travel-note\"}"
+        }
+      }
+    },
+    {
+      "name": "Comment - Like",
+      "description": "评论点赞保持幂等：重复点赞返回当前 likeCount，不会重复累加。",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": "{{baseUrl}}/api/v1/spots/{{spotId}}/comments/{{commentId}}/like"
+      }
+    },
+    {
+      "name": "Share - Route Poster",
+      "description": "poster metadata 为后端内部增强，不新增或改变公开响应字段。",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{baseUrl}}/api/v1/share/route-poster",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"routeId\":{{routeId}}}"
+        }
+      }
+    },
+    {
+      "name": "Share - Spot Poster",
+      "description": "checkinId 用于后端内部关联与海报素材增强，不新增或改变公开响应字段。",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{baseUrl}}/api/v1/share/spot-poster",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"spotId\":{{spotId}},\"checkinId\":{{checkinId}}}"
+        }
+      }
+    },
+    {
+      "name": "Bean - Balance",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": "{{baseUrl}}/api/v1/beans/balance"
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://127.0.0.1:3000" },
+    { "key": "token", "value": "" },
+    { "key": "spotId", "value": "1" },
+    { "key": "commentId", "value": "1" },
+    { "key": "routeId", "value": "1" },
+    { "key": "checkinId", "value": "1" }
+  ]
+}

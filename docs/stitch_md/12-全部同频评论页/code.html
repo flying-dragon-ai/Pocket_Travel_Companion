@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#005313",
+                    "primary-fixed-dim": "#ffb598",
+                    "outline": "#8b7268",
+                    "error-container": "#ffdad6",
+                    "photo-yellow": "#FFC107",
+                    "surface-container-low": "#fff1ec",
+                    "tertiary-fixed": "#ffe16d",
+                    "surface-variant": "#f4ded6",
+                    "secondary-fixed": "#94f990",
+                    "secondary-container": "#91f78e",
+                    "on-secondary-container": "#00731e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#241915",
+                    "surface-container-high": "#fae4dc",
+                    "on-error-container": "#93000a",
+                    "primary": "#a53c02",
+                    "tertiary": "#705d00",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "error": "#ba1a1a",
+                    "background": "#fff8f6",
+                    "quiet-blue": "#E3F2FD",
+                    "primary-fixed": "#ffdbce",
+                    "on-tertiary-container": "#453800",
+                    "bean-brown": "#8D6E63",
+                    "surface-bright": "#fff8f6",
+                    "on-primary-fixed-variant": "#7e2c00",
+                    "on-primary-fixed": "#370e00",
+                    "surface-container-highest": "#f4ded6",
+                    "secondary-fixed-dim": "#78dc77",
+                    "surface": "#fff8f6",
+                    "stress-red": "#FF5252",
+                    "outline-variant": "#dfc0b5",
+                    "on-tertiary-fixed": "#221b00",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "on-background": "#241915",
+                    "inverse-primary": "#ffb598",
+                    "warm-orange": "#FFF3E0",
+                    "secondary": "#006e1c",
+                    "surface-dim": "#ebd6ce",
+                    "inverse-on-surface": "#ffede7",
+                    "primary-container": "#ff7e45",
+                    "on-primary-container": "#682300",
+                    "on-primary": "#ffffff",
+                    "background-subtle": "#F8F9FA",
+                    "on-secondary-fixed": "#002204",
+                    "on-error": "#ffffff",
+                    "surface-container": "#ffe9e2",
+                    "on-secondary": "#ffffff",
+                    "healing-green": "#E8F5E9",
+                    "text-primary": "#2D3436",
+                    "tertiary-container": "#bfa100",
+                    "surface-card": "#FFFFFF",
+                    "surface-tint": "#a53c02",
+                    "on-surface-variant": "#57423a",
+                    "text-secondary": "#636E72",
+                    "inverse-surface": "#3b2e29"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-grid": "12px",
+                    "card-padding": "16px",
+                    "stack-tight": "8px",
+                    "section-gap": "24px",
+                    "margin-page": "16px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Be Vietnam Pro"],
+                    "stat-bean": ["Be Vietnam Pro"],
+                    "label-caps": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "stat-bean": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "headline-lg": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-lg shadow-sm">
+<div class="flex justify-between items-center px-4 h-16">
+<button class="material-symbols-outlined text-[#FF7E45] active:scale-90 duration-200" data-icon="arrow_back">arrow_back</button>
+<h1 class="font-['Be_Vietnam_Pro'] font-semibold text-lg text-[#FF7E45]">同好评价</h1>
+<button class="material-symbols-outlined text-[#FF7E45] active:scale-90 duration-200" data-icon="share">share</button>
+</div>
+</header>
+<main class="max-w-3xl mx-auto pb-24">
+<!-- Mood Affinity Banner -->
+<section class="mx-margin-page my-section-gap">
+<div class="bg-healing-green rounded-xl p-card-padding flex items-center gap-4 shadow-sm border border-secondary/10">
+<div class="bg-white p-3 rounded-full flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-secondary text-[32px]" data-icon="energy_savings_leaf" style="font-variation-settings: 'FILL' 1;">energy_savings_leaf</span>
+</div>
+<div class="flex-1">
+<p class="font-headline-lg text-secondary text-headline-lg">治愈能量匹配中...</p>
+<p class="font-body-md text-on-secondary-container/80 text-body-md">正在为您展示与您同样在寻找“清空大脑”氛围的同好评价</p>
+</div>
+</div>
+</section>
+<!-- Filters -->
+<div class="px-margin-page mb-gutter-grid flex justify-between items-center">
+<div class="flex gap-stack-tight">
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary font-label-caps text-label-caps shadow-sm">热度</button>
+<button class="px-4 py-1.5 rounded-full bg-white text-on-surface-variant font-label-caps text-label-caps border border-outline-variant/30">最新</button>
+</div>
+<div class="flex items-center text-on-surface-variant gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+<span class="font-label-caps text-label-caps">筛选</span>
+</div>
+</div>
+<!-- Comments List -->
+<div class="space-y-gutter-grid px-margin-page">
+<!-- Comment Card 1 -->
+<article class="bg-surface-card rounded-xl p-card-padding shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-on-surface-variant/5">
+<header class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-warm-orange" data-alt="cute minimalist avatar of a young man with glasses and brown hair on a soft orange background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMqhI-j245n6Fp0jpx3TgW8c8LrY80azW4R4dwvA00jEl6GkueWlLdMJuWEPECpb-Fyq2fLe_N3VMSLIPqr805P8V-JdCICDXWddRQocyFodgLtQ0EW4QccvOaLhaM2MYIRYhXb4YH-m_Qc5JJjNdWUu-444YZcBq5q7Ae2OuYGs1HUzPnBV5VmU9W2djQdPxheF1GNT7ALO3PrrRtU3W6IFk0lJ4mQEOiAyuGaG9Qm4XXOT5a0rFo7GhG1Qv16gtGN-FatMqJ_2g"/>
+<div>
+<h3 class="font-headline-lg text-body-lg text-on-surface">林间风</h3>
+<div class="flex items-center text-photo-yellow">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star_half" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+</div>
+</div>
+<span class="text-label-caps font-label-caps text-text-secondary">2小时前</span>
+</header>
+<p class="font-body-md text-on-surface-variant mb-4 leading-relaxed">
+                    真的太治愈了！工作了一周头都要炸了，来这里坐了一下午。这里没有任何推销声，只有风吹过树叶的声音。如果你也想找个地方“消失”一会儿，强烈推荐这里。
+                </p>
+<!-- Photo Grid -->
+<div class="grid grid-cols-3 gap-2 mb-4">
+<img class="w-full h-24 object-cover rounded-lg" data-alt="serene view of a quiet forest path with dappled sunlight through green leaves in a peaceful atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXsWodYFqUOl1i64L0PblP0rHBJ9KZijcc94sBPuJBtyWAHvds7PNTdmaZ23Te4IFUm72Qt8g_lMxbYkk3JZDS4apl_KIORvr4c8MSu_AYCX6MS9iV3fIwb8jZKV6UKwvBi5ngbMD9T_Enwynd4Q9SXKlLcdS_DRvr2aQhpvJRomCg1m0bbeP-0kfNodWWr1ITA2071bGwgt-1bphSWDGeaWW_zrBSaSC0a2P3zjBkeiN4cI9MUVPzNNH_KAe0MyLhGcg8bIp1m7s"/>
+<img class="w-full h-24 object-cover rounded-lg" data-alt="close-up of a cup of herbal tea on a rustic wooden table with soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMUEIVYlXiVVOmTEc8Rblo8bMLdN_YwfipYhPLLZA-XoHdd-sexlPpALsk-AeJb_M-JpXGq6ZGEDvZPc-KQxLnVLfKXX-PSo_CbYVC6xJRpcgCS2IRIrxLT2ZRve3cCRgviNbLJPXEc0n83XmmadjdtnBnHDadHhK9PfpNNghpUK1A715O6yVxrdz3l36N3qfUWNmEDPjhqJJ7HypIBvv0Ke-fOTsiHPrrXSTqhlXMYCmmoI5LMy-6_r_7nF6hWxhqqIhRGPkeuDU"/>
+<div class="relative w-full h-24">
+<img class="w-full h-24 object-cover rounded-lg brightness-75" data-alt="wide angle shot of a calm mountain lake at sunset with soft purple and orange sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZUz7eOTXl7h6QD0qBHcILSJBh9OT2DHdezGAxOi5MS7QcJUQjWIIJjhD8YTzA1gLpoux4l3GKafAt0JtwcOaKzZvMc2rmKkHlHSFPMi33nzlLkc7Y4A8itv4HLEBRnDerHo46cRGBWc8pSa3u2VZtpQuk36TFLtkgPYjsPDw2xY2jO1Yzx-szg0XrPKX-LrvvNRdNr0q2Ykypz5K2TcJhhGnjWuZk0LFcOEz-iZOQlSYOAjuJ1onSb8MKB06biUsy4VV02RTv9Ng"/>
+<span class="absolute inset-0 flex items-center justify-center text-white font-bold">+2</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-1.5 text-text-secondary group">
+<span class="material-symbols-outlined text-[20px] group-active:scale-125 transition-transform" data-icon="favorite">favorite</span>
+<span class="font-label-caps text-label-caps">1.2k</span>
+</div>
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-caps text-label-caps">48</span>
+</div>
+<div class="flex-1 flex justify-end">
+<span class="px-3 py-1 rounded-full bg-warm-orange text-primary text-[10px] font-semibold"># 压力拜拜</span>
+</div>
+</div>
+</article>
+<!-- Comment Card 2 -->
+<article class="bg-surface-card rounded-xl p-card-padding shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-on-surface-variant/5">
+<header class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-warm-orange" data-alt="minimalist avatar of a woman with short dark hair and a warm smile on a light pink background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDodLi76vXDajR0ZVs2fNlLfBJXRTtR2P1UxFXHp-WYUsdE2Ha55C7lKhn8z0T6iQrVsf6rYjXM_iBrFF10YjTqc4LFP1kQgfzh7FQ14ueS0Xzzt4cv88F0jEsErv1RpJ7gxo5FEG5x8cl3mukmZzOXJ7UyixSn9-7eSP2X2jAofpF0FChKdK3To664xKprF64H_QvMuXi92yEQ-bhjyCmCsWiM2XS5sIZ11i6QX7XdGur3JOj0HsWotdXXkKurM3BUhmF65JOVLEs"/>
+<div>
+<h3 class="font-headline-lg text-body-lg text-on-surface">猫宁Morning</h3>
+<div class="flex items-center text-photo-yellow">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<span class="text-label-caps font-label-caps text-text-secondary">昨天</span>
+</header>
+<p class="font-body-md text-on-surface-variant mb-4 leading-relaxed">
+                    本来只是想随便逛逛，结果在这里找到了久违的松弛感。书店角落的懒人沙发太舒服了，简直是社恐人士的天堂。
+                </p>
+<div class="grid grid-cols-2 gap-2 mb-4">
+<img class="w-full h-32 object-cover rounded-lg" data-alt="interior of a cozy minimalist bookstore with warm wood shelving and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALS2r-QI-qj-EbxOTP78hzc9U2IQtezaGdtqRkS49qnrNoMMl5gQyxsoXVns1Ig-IWv1otyyGin7wilJStLmtuUiV1ENCzq4zfWVV068vFGLLwQnpAle0KmFcvYFRpvc6iuyeC6xDrybm4PHilBPwgcom__4Yg8HLTtXyXiyzCf5I_UFhUssi3gfLGPlJTpY1MjjrPUPItUPUxdIBIuBya4ENmikGL7M5oa86Xtew7TdpIpgmgDpAQVwI-SpmjyByt5RlbARRaP5Y"/>
+<img class="w-full h-32 object-cover rounded-lg" data-alt="close-up of an open book resting on a soft cream colored fabric in natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0EIwjzyqqufsKxGXRGX2oh9Lgn7uynT1BFfjY9AeJKZWvpqgDiAggcxXBCIKUyZkR1Zs6T-WZwI4o9JR9rdDztlFImZJ7iekkYbjw12l9OqMMQPApwgBo9dZkiVRfg3eSuf9FWV7wayO1d-Wnp3WjSGReJi48ItU8aKrIXsVFoaUM1hDjYh1meTOrLd0pQBEE-xfVywRSDlSaCF7p1lwIgxRGrg9xx3RJcWF9VZ7K6lXJ2O2RTkolX8Lj85pTtv8L99Iy5qGZq44"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-1.5 text-text-secondary group">
+<span class="material-symbols-outlined text-[20px] group-active:scale-125 transition-transform" data-icon="favorite">favorite</span>
+<span class="font-label-caps text-label-caps">856</span>
+</div>
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-caps text-label-caps">22</span>
+</div>
+<div class="flex-1 flex justify-end">
+<span class="px-3 py-1 rounded-full bg-healing-green text-secondary text-[10px] font-semibold"># 独处时光</span>
+</div>
+</div>
+</article>
+<!-- Comment Card 3 (Text Only) -->
+<article class="bg-surface-card rounded-xl p-card-padding shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-on-surface-variant/5">
+<header class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-warm-orange" data-alt="stylish minimalist avatar of a woman with a yellow beret and glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8vyotTYs5KrlxQDSvTWo4s2EZJpMorC0L0xWjdqD5wcYhCBG15RKtYXyo0txkz6r_TLOGN47K3lPpFYN7oFuQv_0o9bi65SU5JOu1DQ4aQis5YaQroEkryJKlj9sBpKpddCjAwjAp74MBQ-tRaSEeLXXj89wDC7AaJat7EuvDrixGnuyeJkx-xR9qtuqKsNx5T8gQbrCy_Gdss3CiQN9uCoitBy4ByZRPXn_SDcsXXtTfGZr4toB5ZuYvE50fwmlhBe6ION7wtMA"/>
+<div>
+<h3 class="font-headline-lg text-body-lg text-on-surface">夏日冰美式</h3>
+<div class="flex items-center text-photo-yellow">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star_outline">star_outline</span>
+</div>
+</div>
+</div>
+<span class="text-label-caps font-label-caps text-text-secondary">3天前</span>
+</header>
+<p class="font-body-md text-on-surface-variant mb-4 leading-relaxed italic">
+                    “在这繁忙的世界里，我们需要一片属于自己的净土。” 这里完美诠释了这句话。
+                </p>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-1.5 text-text-secondary group">
+<span class="material-symbols-outlined text-[20px] group-active:scale-125 transition-transform" data-icon="favorite">favorite</span>
+<span class="font-label-caps text-label-caps">341</span>
+</div>
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-caps text-label-caps">9</span>
+</div>
+<div class="flex-1 flex justify-end">
+<span class="px-3 py-1 rounded-full bg-quiet-blue text-blue-600 text-[10px] font-semibold"># 冥想角落</span>
+</div>
+</div>
+</article>
+</div>
+<!-- FAB for Adding Comment (Specific to Details page context) -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary-container text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-[28px]" data-icon="edit_square">edit_square</span>
+</button>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[2rem] border-t border-stone-100 dark:border-stone-800 bg-white dark:bg-stone-900 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-around items-center pt-3 pb-6 px-12"><div class="flex flex-col items-center justify-center text-[#FF7E45] scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">探索</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 hover:text-[#FF7E45] transition-colors">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">路线</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 hover:text-[#FF7E45] transition-colors">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">我的</span>
+</div></div>
+</nav>
+</body></html>

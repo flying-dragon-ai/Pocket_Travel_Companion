@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "healing-green": "#E8F5E9",
+                        "secondary": "#006e1c",
+                        "background": "#fff8f6",
+                        "on-primary-fixed": "#370e00",
+                        "surface-container-highest": "#f4ded6",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#8b7268",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-primary-container": "#682300",
+                        "tertiary": "#705d00",
+                        "on-primary-fixed-variant": "#7e2c00",
+                        "surface": "#fff8f6",
+                        "stress-red": "#FF5252",
+                        "secondary-fixed": "#94f990",
+                        "primary": "#a53c02",
+                        "surface-container-high": "#fae4dc",
+                        "on-surface": "#241915",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#fff1ec",
+                        "outline-variant": "#dfc0b5",
+                        "primary-container": "#ff7e45",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-background": "#241915",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#005313",
+                        "inverse-primary": "#ffb598",
+                        "text-secondary": "#636E72",
+                        "inverse-surface": "#3b2e29",
+                        "secondary-container": "#91f78e",
+                        "tertiary-fixed": "#ffe16d",
+                        "tertiary-container": "#bfa100",
+                        "background-subtle": "#F8F9FA",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#78dc77",
+                        "on-secondary": "#ffffff",
+                        "photo-yellow": "#FFC107",
+                        "inverse-on-surface": "#ffede7",
+                        "bean-brown": "#8D6E63",
+                        "surface-container": "#ffe9e2",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#ffb598",
+                        "surface-card": "#FFFFFF",
+                        "on-tertiary-fixed": "#221b00",
+                        "primary-fixed": "#ffdbce",
+                        "on-tertiary-container": "#453800",
+                        "text-primary": "#2D3436",
+                        "surface-dim": "#ebd6ce",
+                        "surface-tint": "#a53c02",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002204",
+                        "quiet-blue": "#E3F2FD",
+                        "warm-orange": "#FFF3E0",
+                        "surface-bright": "#fff8f6",
+                        "surface-variant": "#f4ded6",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#00731e",
+                        "on-surface-variant": "#57423a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-grid": "12px",
+                        "section-gap": "24px",
+                        "stack-tight": "8px",
+                        "margin-page": "16px",
+                        "unit": "4px",
+                        "card-padding": "16px"
+                    },
+                    "fontFamily": {
+                        "stat-bean": ["beVietnamPro"],
+                        "label-caps": ["plusJakartaSans"],
+                        "body-lg": ["plusJakartaSans"],
+                        "body-md": ["plusJakartaSans"],
+                        "headline-xl": ["beVietnamPro"],
+                        "headline-lg": ["beVietnamPro"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .path-timeline-connector::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 40px;
+            bottom: -20px;
+            border-left: 2px dotted #dfc0b5;
+        }
+        .path-timeline-item:last-child .path-timeline-connector::after {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<header class="bg-orange-50/80 dark:bg-zinc-900/80 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm dark:shadow-none flex justify-between items-center px-4 h-14">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-500" data-icon="location_on">location_on</span>
+<h1 class="font-['Be_Vietnam_Pro'] font-bold text-lg text-orange-600 tracking-tight">口袋旅行</h1>
+</div>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined text-orange-500" data-icon="light_mode">light_mode</span>
+</button>
+</header>
+<main class="pt-20 px-4 max-w-md mx-auto space-y-6">
+<!-- Action Buttons Grid - Updated height and label -->
+<section class="grid grid-cols-2 gap-3">
+<button class="bg-primary hover:opacity-90 active:scale-95 transition-all text-on-primary rounded-xl py-2.5 px-4 flex flex-col items-center justify-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-2xl" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-headline-lg text-sm md:text-body-lg">定制路径</span>
+</button>
+<button class="bg-surface-card border-2 border-bean-brown/20 hover:bg-warm-orange active:scale-95 transition-all text-bean-brown rounded-xl py-2.5 px-4 flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined text-2xl" data-icon="link">link</span>
+<span class="font-headline-lg text-sm md:text-body-lg">导入链接</span>
+</button>
+</section>
+<!-- Current Trip Card -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<h2 class="font-headline-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="directions_run">directions_run</span>
+                    正在进行
+                </h2>
+<span class="bg-healing-green text-secondary px-2 py-1 rounded-full text-xs font-bold animate-pulse">旅行中</span>
+</div>
+<div class="bg-surface-card rounded-[24px] p-card-padding shadow-[0_4px_20px_rgba(255,126,69,0.05)] border border-outline-variant/30 space-y-4">
+<div class="flex gap-4 items-start">
+<img alt="Scenic coastal view" class="w-20 h-20 rounded-xl object-cover" data-alt="Soft morning sunlight over a calm turquoise ocean with white sandy beach and gentle waves reaching the shore" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOwQsrULoskr5VfqNKhvF4VxSaFc3cPe4A3IF0yDdwgsKZHroxYcRexZNUYB1r7bL6HsHOQqWcp1iYL654Vt_Sxv_h4V0abTwiRykDC_iVKQNDsznXosxbTKF1fTPBHNPhBdmVsXq8npERU-tZkf_O7lFOxmmkKf7S3VDPHhC6Mz5z8ro1u-Ju_XV9Ln0xOagwsnM1oFlVUZoFGPKQSJQ3EXzw9XkjJQ6St00Eb7lA-xXZczgz9MdjaKmH6Ix1fggTR9lQfH0d2pE"/>
+<div class="flex-1">
+<h3 class="font-headline-lg text-on-surface">大理洱海·治愈之旅</h3>
+<p class="text-text-secondary text-body-md mt-1">当前：才村码头 · 骑行中</p>
+</div>
+</div>
+<!-- Progress Bar with Buddy -->
+<div class="relative pt-6 pb-2">
+<div class="h-2 w-full bg-surface-container-low rounded-full">
+<div class="h-2 bg-primary-container rounded-full relative" style="width: 65%;">
+<div class="absolute -right-3 -top-6">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="child_care">child_care</span>
+</div>
+</div>
+</div>
+<div class="flex justify-between mt-2 text-xs text-text-secondary font-label-caps">
+<span>起点：大理古城</span>
+<span>终点：双廊古镇</span>
+</div>
+</div>
+<!-- Functional Grid -->
+<div class="grid grid-cols-3 gap-2 pt-2">
+<button class="flex flex-col items-center gap-1 p-2 rounded-xl bg-quiet-blue/50 text-blue-700 hover:bg-quiet-blue transition-colors">
+<span class="material-symbols-outlined" data-icon="psychology_alt">psychology_alt</span>
+<span class="text-xs font-medium">问一问</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 rounded-xl bg-warm-orange text-orange-700 hover:bg-warm-orange/80 transition-colors">
+<span class="material-symbols-outlined" data-icon="checklist">checklist</span>
+<span class="text-xs font-medium">清单</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 rounded-xl bg-healing-green/50 text-secondary hover:bg-healing-green transition-colors">
+<span class="material-symbols-outlined" data-icon="wb_sunny">wb_sunny</span>
+<span class="text-xs font-medium">24°C</span>
+</button>
+</div>
+</div>
+</section>
+<!-- History Trips List -->
+<section class="space-y-6 pb-4">
+<h2 class="font-headline-lg text-on-surface">路径历史</h2>
+<!-- September Group -->
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<span class="text-bean-brown font-bold text-sm tracking-widest uppercase">九月 2023</span>
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+</div>
+<div class="space-y-4">
+<!-- History Item 1 -->
+<div class="relative pl-10 path-timeline-item">
+<div class="absolute left-0 top-1 w-10 flex justify-center path-timeline-connector">
+<div class="w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-primary-fixed"></div>
+</div>
+<div class="bg-surface-card rounded-2xl p-3 flex gap-4 border border-outline-variant/10 shadow-sm">
+<img alt="City night lights" class="w-16 h-16 rounded-lg object-cover" data-alt="Cinematic night street view in Tokyo with neon signs reflected on wet pavement and soft urban bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvWfY3Nt9BSJ7-s1UIKKv5Qbt2G1V5GVfzXBtRJ4xgXNtTXvkhGeAPJHH6aq-yN0hpGJ3QGtfRxOEBXvnLoq8M6fB-4BgsEdrZ-EdqcW25sQlK5So4AUOLH9yeykeC2ImENrPgpwqHEZKLSpjP-AaHZX-Kj49XDvpfz8TmLtpT0a4B-Wjjio-hmKD4JdirlgVNbu5gS3QJAjS00SFa_dK7z8G14SqopjXI7Ip9qABUjnM0KrOXlUC15sWsKPPjGCrrYtUABeEBQXA"/>
+<div class="flex-1">
+<h4 class="font-body-lg text-on-surface">魔都周末：光影漫步</h4>
+<p class="text-xs text-text-secondary mt-1">9月15日 · 32.5km · 2450步</p>
+<div class="flex gap-1 mt-2">
+<span class="bg-warm-orange text-primary-container text-[10px] px-2 py-0.5 rounded-md">#城市探索</span>
+<span class="bg-healing-green text-secondary text-[10px] px-2 py-0.5 rounded-md">#减压</span>
+</div>
+</div>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="relative pl-10 path-timeline-item">
+<div class="absolute left-0 top-1 w-10 flex justify-center path-timeline-connector">
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant ring-4 ring-surface-container-low"></div>
+</div>
+<div class="bg-surface-card rounded-2xl p-3 flex gap-4 border border-outline-variant/10 shadow-sm">
+<img alt="Mountain peak" class="w-16 h-16 rounded-lg object-cover" data-alt="Majestic snowy mountain peak against a clear deep blue sky with pine trees in the foreground" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtoFRO0_y-ia5PGMU4U5ov5U7Xr3kJPlkzkYD3sxQlvw6Ew_A_DdyQtl95YGIMrGbo-OF67egFw8GkBJGESPpsidmz3Jsu9hG1qWnXF547a6e3XFZwm49m-Xn4mIk9YB75oYd5PzJrqrFFCtHkNJd1RcZugUR_yePeV2TE5BAE6jdf3tHiK1zqjedzZT4ZKRG534YxraRGSiIc7_vAMSQfcXOMfO2ZhldLk03g1XPQOwB9v8b6wi87lv9RVmmQnNFrR7UIxlb1bIQ"/>
+<div class="flex-1">
+<h4 class="font-body-lg text-on-surface">四姑娘山：呼吸荒野</h4>
+<p class="text-xs text-text-secondary mt-1">9月2日 · 12.8km · 18902步</p>
+<div class="flex gap-1 mt-2">
+<span class="bg-warm-orange text-primary-container text-[10px] px-2 py-0.5 rounded-md">#徒步</span>
+<span class="bg-healing-green text-secondary text-[10px] px-2 py-0.5 rounded-md">#自然疗愈</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- August Group -->
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<span class="text-bean-brown font-bold text-sm tracking-widest uppercase">八月 2023</span>
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+</div>
+<div class="relative pl-10 path-timeline-item">
+<div class="absolute left-0 top-1 w-10 flex justify-center path-timeline-connector">
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant ring-4 ring-surface-container-low"></div>
+</div>
+<div class="bg-surface-card rounded-2xl p-3 flex gap-4 border border-outline-variant/10 shadow-sm">
+<div class="w-16 h-16 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-outline" data-icon="image">image</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg text-on-surface">杭州灵隐：佛系静心</h4>
+<p class="text-xs text-text-secondary mt-1">8月20日 · 5.4km · 7800步</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-6 pb-6 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-lg rounded-t-[32px] shadow-[0_-4px_20px_rgba(255,126,69,0.08)] border-t border-orange-100 dark:border-zinc-800">
+<button class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 hover:text-orange-400 active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-['Be_Vietnam_Pro'] font-medium text-[10px]">探索</span>
+</button>
+<button class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-400 scale-110 transition-transform active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-['Be_Vietnam_Pro'] font-medium text-[10px]">路径</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 hover:text-orange-400 active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] font-medium text-[10px]">我的</span>
+</button>
+</nav>
+</body></html>

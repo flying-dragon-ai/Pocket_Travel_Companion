@@ -1,0 +1,33 @@
+name: Build Mini Program
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run quality checks
+        run: npm run lint && npm run type-check && npm run test:coverage && npm run deadcode:check
+
+      - name: Build WeChat Mini Program
+        run: npm run build:mp-weixin
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mp-weixin-build
+          path: dist/build/mp-weixin/

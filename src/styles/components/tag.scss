@@ -1,0 +1,30 @@
+@use '../variables.scss' as *;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56rpx;
+  padding: 0 $space-2;
+  border-radius: $radius-pill;
+  font-size: $font-size-xs;
+  line-height: $line-height-xs;
+}
+
+.tag--normal {
+  color: $color-gray-500;
+  background: $color-white;
+  border: 2rpx solid #ececec;
+}
+
+.tag--active {
+  color: $color-white;
+  background: $color-primary;
+  border: 2rpx solid $color-primary;
+}
+
+.tag--disabled {
+  color: #c5c5c5;
+  background: #f1f1f1;
+  border: 2rpx solid #ededed;
+}

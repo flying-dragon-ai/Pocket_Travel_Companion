@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-card": "#FFFFFF",
+                    "on-primary-fixed": "#370e00",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#00731e",
+                    "on-secondary-fixed-variant": "#005313",
+                    "quiet-blue": "#E3F2FD",
+                    "surface-bright": "#fff8f6",
+                    "surface-variant": "#f4ded6",
+                    "secondary-fixed": "#94f990",
+                    "text-primary": "#2D3436",
+                    "background-subtle": "#F8F9FA",
+                    "surface-tint": "#a53c02",
+                    "secondary-container": "#91f78e",
+                    "surface-container-low": "#fff1ec",
+                    "on-tertiary-container": "#453800",
+                    "error-container": "#ffdad6",
+                    "surface": "#fff8f6",
+                    "primary-container": "#ff7e45",
+                    "stress-red": "#FF5252",
+                    "on-tertiary-fixed": "#221b00",
+                    "tertiary-fixed": "#ffe16d",
+                    "on-error": "#ffffff",
+                    "tertiary": "#705d00",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#7e2c00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#dfc0b5",
+                    "background": "#fff8f6",
+                    "on-surface": "#241915",
+                    "primary-fixed": "#ffdbce",
+                    "photo-yellow": "#FFC107",
+                    "secondary": "#006e1c",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "outline": "#8b7268",
+                    "on-secondary-fixed": "#002204",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "surface-container": "#ffe9e2",
+                    "on-primary-container": "#682300",
+                    "inverse-primary": "#ffb598",
+                    "on-primary": "#ffffff",
+                    "healing-green": "#E8F5E9",
+                    "on-background": "#241915",
+                    "text-secondary": "#636E72",
+                    "primary": "#a53c02",
+                    "bean-brown": "#8D6E63",
+                    "surface-dim": "#ebd6ce",
+                    "secondary-fixed-dim": "#78dc77",
+                    "tertiary-container": "#bfa100",
+                    "inverse-surface": "#3b2e29",
+                    "primary-fixed-dim": "#ffb598",
+                    "warm-orange": "#FFF3E0",
+                    "surface-container-high": "#fae4dc",
+                    "inverse-on-surface": "#ffede7",
+                    "surface-container-highest": "#f4ded6",
+                    "on-surface-variant": "#57423a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "card-padding": "16px",
+                    "stack-tight": "8px",
+                    "section-gap": "24px",
+                    "gutter-grid": "12px",
+                    "margin-page": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Be Vietnam Pro", "sans-serif"],
+                    "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+                    "stat-bean": ["Be Vietnam Pro", "sans-serif"],
+                    "headline-xl": ["Be Vietnam Pro", "sans-serif"],
+                    "label-caps": ["Plus Jakarta Sans", "sans-serif"],
+                    "body-md": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            "fontSize": {
+                    "headline-lg": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "stat-bean": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-xl": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .message-list-item:active {
+            transform: scale(0.98);
+        }
+        .buddy-avatar-ring {
+            position: relative;
+        }
+        .buddy-avatar-ring::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border: 2px solid #ff7e45;
+            border-radius: 9999px;
+            opacity: 0.3;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen">
+<!-- TopAppBar Component -->
+<header class="bg-white/80 dark:bg-stone-900/80 backdrop-blur-md border-b border-orange-100/50 dark:border-stone-800 shadow-sm docked full-width top-0 sticky z-50 flex justify-between items-center px-4 h-16 w-full">
+<button class="active:scale-95 transition-transform p-2">
+<span class="material-symbols-outlined text-orange-500 dark:text-orange-400">arrow_back</span>
+</button>
+<h1 class="font-be-vietnam-pro font-bold text-lg text-orange-600 dark:text-orange-400">互动消息</h1>
+<button class="active:scale-95 transition-transform flex items-center gap-1 bg-orange-50 px-3 py-1.5 rounded-full hover:bg-orange-100 transition-colors">
+<span class="material-symbols-outlined text-sm text-orange-600" style="font-variation-settings: 'FILL' 1;">done_all</span>
+<span class="text-label-caps font-label-caps text-orange-600">全部已读</span>
+</button>
+</header>
+<main class="max-w-2xl mx-auto pb-32 pt-4">
+<!-- Message List -->
+<div class="px-4 space-y-4">
+<!-- Message Item 1: "Useful" (Like) Notification -->
+<div class="message-list-item bg-surface-card p-4 rounded-[1.5rem] shadow-sm flex gap-4 items-start transition-all border border-stone-100 hover:border-orange-200">
+<div class="relative flex-shrink-0">
+<img alt="User" class="w-12 h-12 rounded-full bg-orange-50" data-alt="cute stylized avatar of a young man with glasses and brown hair in a playful illustration style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-Vb0cyqYhQEEIXlFXnCqCDuacbJKeSulpPZBXm0qqCHhKXuV8Os21zsT7Z0EXfabS6tg-YSLR5UToapBxfNyiGM0-A2zHqOIuhxzBYxyw_kA7VyAahFtJfNHX-IO5yVnPKuVwoKXBd0IkzMn8PE9mZRvckvS71k73XPn51LTM_xgsSxsK8rlak84oTsuenZr23v_LLXotGMA_p7hVlyLXBLiDoV9hUKN397WuLlgbFCIV0tJzQoiiV5BO5nuuh-5APul_2gKF7Dk"/>
+<div class="absolute -bottom-1 -right-1 bg-primary text-white p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<span class="font-bold text-on-surface font-headline-lg text-[15px]">情绪探险家 · 阿木</span>
+<span class="text-[11px] text-text-secondary font-label-caps uppercase">10分钟前</span>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                    你的机位 <span class="font-bold text-orange-600">“落日飞车”</span> 被34人觉得有用。
+                </p>
+<div class="mt-3 bg-background-subtle rounded-xl p-2 flex items-center gap-3 border border-orange-50">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="vibrant sunset over a winding mountain road with silhouettes of trees at golden hour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLFEgjzHmBevYniaqgiIkfz57KANgNDz_GRc-DSNErabPLex_StJ8iCq9N_x5d61T5ArLSJD2bE92GFkRlQdiKtc7tlombcF3nHfIdSLQqpj0Xn1kV1xVfMQ8hwI4-umIGcDCP27BFLN5-Yfjw_3zRi10aFI4Qxp7QwyWedfxqefCpuTg6UElAuVfJpW4Sm7D9Uo59ffsL9PIxq0zGSaaBl3Ul5bxwQRcSf49NEGmjLoo_S6woyKTjvFtQzr2fa2v-YRcw_-8UXNQ"/>
+<span class="text-xs text-text-secondary truncate">落日飞车：大理最温柔的海边弯道...</span>
+</div>
+</div>
+<div class="w-2 h-2 bg-primary rounded-full mt-2"></div>
+</div>
+<!-- Message Item 3: "Bean Reward" System Notification -->
+<div class="message-list-item bg-surface-container-low p-4 rounded-[1.5rem] shadow-sm flex gap-4 items-start border-2 border-primary-container/20">
+<div class="flex-shrink-0 w-12 h-12 bg-warm-orange rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-600 text-2xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<span class="font-bold text-on-surface font-headline-lg text-[15px]">搭子小管家</span>
+<span class="text-[11px] text-text-secondary font-label-caps uppercase">昨天</span>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                    因为你的优质机位分享，你获得了 <span class="font-bold text-orange-600">10 颗豆子</span> 奖励！快去兑换中心看看吧。
+                </p>
+</div>
+</div>
+<!-- Message Item 4: Previous Like Interaction -->
+<div class="message-list-item bg-white/60 p-4 rounded-[1.5rem] flex gap-4 items-start opacity-70 grayscale-[0.3]">
+<div class="relative flex-shrink-0">
+<img alt="User" class="w-12 h-12 rounded-full bg-stone-100" data-alt="minimalist avatar of a trendy person with a yellow hoodie and calm expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMeByyhoQc0NCarZ0lIZ_tMlaEmevKdQ12H5s30kcYVAVJkeVofMzQyn_1LD1V3c5tujJj6LcL913NlerxZvo4HOABMz_CcpzASt2kxYz-nLXfUSnLrG5AbPmQzIbmWv27s8JewTjZEExZ6Msg7uD9ZXquQ7SOwmifRKTN9Ig3ztczdkVBsyZk5xKuZ6WILUjmGdXiwAJ9CxqeV33z-pwS4bDNhPsZIUKPha-btCAh_aRLMY8Rgd7eXW0A5_ln01J4qt4_Hs_-ip8"/>
+<div class="absolute -bottom-1 -right-1 bg-primary text-white p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<span class="font-bold text-on-surface font-headline-lg text-[15px]">Coco_Li</span>
+<span class="text-[11px] text-text-secondary font-label-caps uppercase">2天前</span>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                    觉得你的回复“这里的咖啡真的很顶”很有用。
+                </p>
+</div>
+</div>
+</div>
+<!-- Empty State Buddy (Subtle) -->
+<div class="py-12 flex flex-col items-center opacity-40">
+<span class="material-symbols-outlined text-4xl text-stone-300">notifications_off</span>
+<p class="text-xs font-label-caps mt-2 text-stone-400">没有更多新动态了</p>
+</div>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-6 pt-3 bg-white/90 dark:bg-stone-900/90 backdrop-blur-lg rounded-t-[2rem] border-t border-orange-100/30 shadow-[0_-4px_20px_rgba(255,126,69,0.1)]">
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 opacity-80 active:scale-90 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-be-vietnam-pro text-[10px] font-medium">探索</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 opacity-80 active:scale-90 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined">route</span>
+<span class="font-be-vietnam-pro text-[10px] font-medium">路径</span>
+</div>
+<div class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-400 scale-110 font-bold bg-orange-50 dark:bg-orange-900/20 rounded-2xl px-4 py-1 active:scale-90 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-be-vietnam-pro text-[10px] font-medium">我的</span>
+</div>
+</nav>
+</body></html>

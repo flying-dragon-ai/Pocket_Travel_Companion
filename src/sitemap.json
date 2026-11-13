@@ -1,0 +1,9 @@
+{
+  "desc": "口袋旅行搭子 sitemap",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

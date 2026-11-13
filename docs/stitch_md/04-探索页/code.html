@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "text-secondary": "#636E72",
+                        "inverse-on-surface": "#ffede7",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#00731e",
+                        "primary-container": "#ff7e45",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#682300",
+                        "primary-fixed-dim": "#ffb598",
+                        "secondary": "#006e1c",
+                        "surface-bright": "#fff8f6",
+                        "outline-variant": "#dfc0b5",
+                        "tertiary": "#705d00",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-error-container": "#93000a",
+                        "surface-card": "#FFFFFF",
+                        "surface-container-highest": "#f4ded6",
+                        "primary-fixed": "#ffdbce",
+                        "photo-yellow": "#FFC107",
+                        "on-primary-fixed-variant": "#7e2c00",
+                        "secondary-fixed": "#94f990",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#fae4dc",
+                        "on-tertiary-container": "#453800",
+                        "surface-variant": "#f4ded6",
+                        "secondary-container": "#91f78e",
+                        "background": "#fff8f6",
+                        "tertiary-container": "#bfa100",
+                        "surface": "#fff8f6",
+                        "on-error": "#ffffff",
+                        "warm-orange": "#FFF3E0",
+                        "surface-container-low": "#fff1ec",
+                        "inverse-primary": "#ffb598",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-primary-fixed": "#370e00",
+                        "secondary-fixed-dim": "#78dc77",
+                        "primary": "#a53c02",
+                        "stress-red": "#FF5252",
+                        "surface-container": "#ffe9e2",
+                        "outline": "#8b7268",
+                        "bean-brown": "#8D6E63",
+                        "inverse-surface": "#3b2e29",
+                        "quiet-blue": "#E3F2FD",
+                        "on-surface": "#241915",
+                        "healing-green": "#E8F5E9",
+                        "on-surface-variant": "#57423a",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#a53c02",
+                        "on-secondary-fixed": "#002204",
+                        "surface-dim": "#ebd6ce",
+                        "background-subtle": "#F8F9FA",
+                        "text-primary": "#2D3436",
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-background": "#241915"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "section-gap": "24px",
+                        "stack-tight": "8px",
+                        "gutter-grid": "12px",
+                        "card-padding": "16px",
+                        "margin-page": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["beVietnamPro"],
+                        "label-caps": ["plusJakartaSans"],
+                        "stat-bean": ["beVietnamPro"],
+                        "body-md": ["plusJakartaSans"],
+                        "headline-xl": ["beVietnamPro"],
+                        "body-lg": ["plusJakartaSans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "stat-bean": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-xl": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .waterfall-grid {
+            column-count: 2;
+            column-gap: 12px;
+        }
+        .waterfall-item {
+            break-inside: avoid;
+            margin-bottom: 12px;
+        }
+        .breath-effect {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(0.98); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-surface min-h-screen pb-24">
+<!-- Top Status Bar & Header -->
+<header class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md fixed top-0 w-full z-50 px-4 pt-4 pb-2 shadow-sm border-none">
+<!-- First Row: Location & Currency -->
+<div class="flex justify-between items-center mb-3">
+<div class="flex items-center gap-1.5 bg-warm-orange px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-orange-500 text-sm" data-icon="location_on">location_on</span>
+<span class="font-headline-lg text-sm text-on-surface">上海 · ☀️ 22℃</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-3 py-1.5 rounded-full border border-orange-100">
+<span class="text-lg">🫘</span>
+<span class="font-stat-bean text-primary text-sm">100</span>
+</div>
+</div>
+<!-- Second Row: Mood & Update -->
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-healing-green rounded-full flex items-center justify-center text-xl shadow-inner">
+                    😌
+                </div>
+<div>
+<p class="font-label-caps text-text-secondary text-[10px]">当前心情</p>
+<p class="font-headline-lg text-sm">放松中</p>
+</div>
+</div>
+<button class="breath-effect flex items-center gap-1 bg-white border border-primary/20 px-4 py-2 rounded-xl shadow-sm text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="edit_note">edit_note</span>
+<span class="font-body-lg text-xs">更新心情</span>
+</button>
+</div>
+<!-- Search / Import Bar -->
+<div class="relative group">
+<input class="w-full bg-white border-none rounded-2xl py-3 pl-11 pr-4 shadow-sm text-sm focus:ring-2 focus:ring-primary-container transition-all" placeholder="输入目的地或粘贴路线链接..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" data-icon="search">search</span>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<span class="w-[1px] h-4 bg-zinc-200"></span>
+<span class="material-symbols-outlined text-orange-500" data-icon="link">link</span>
+</div>
+</div>
+</header>
+<!-- Content Spacer -->
+<div class="h-[180px]"></div>
+<!-- Main Discovery Feed -->
+<main class="px-4">
+<!-- Section Title -->
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-xl text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-600" data-icon="explore">explore</span>
+                为你推荐
+            </h2>
+<div class="flex gap-2">
+<button class="p-2 bg-white rounded-lg shadow-sm"><span class="material-symbols-outlined text-zinc-500 text-sm" data-icon="tune">tune</span></button>
+</div>
+</div>
+<!-- Waterfall Grid -->
+<div class="waterfall-grid">
+<!-- Card 1 -->
+<div class="waterfall-item">
+<div class="bg-surface-card rounded-3xl overflow-hidden shadow-sm border border-black/5">
+<div class="relative h-48">
+<img alt="Sunset View" class="w-full h-full object-cover" data-alt="romantic sunset over a calm lake with silhouettes of a couple standing on a wooden pier" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_b-A-RWABZ0FLLhr56wiVvoD6Vhh1mT3V-vZUmhKIu3gm_FEgnS3QvrpnI92GRuKWaG-Lsq4-sbLh2ZDB85acHe6VA3ClDtftMqMKLb18I9AvzaAKSD7Y9gyDhUCwesvwNNYBZ68gJhvOGtCK8Q70SVMpJAKKu-k75oLFxuC0zIulC2OCPr0IgVDj4up0R_z7IlbSvbn5QrXhDU_Z_pkD-tS0Uh1pBnv99xp-TRBDLBmw4PxdB3LeJHfMD28WUS5pW-r8Sf6e7-U"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded-lg">
+<span class="text-[10px] font-bold text-primary">#暧昧升温中</span>
+</div>
+</div>
+<div class="p-3">
+<h3 class="font-headline-lg text-sm mb-2">落日湖畔治愈之旅</h3>
+<div class="flex flex-wrap gap-1 mb-2">
+<span class="text-[10px] text-text-secondary bg-background-subtle px-2 py-0.5 rounded-full flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="near_me">near_me</span>
+                                淀山湖
+                            </span>
+<span class="text-[10px] text-text-secondary bg-background-subtle px-2 py-0.5 rounded-full flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="near_me">near_me</span>
+                                露营地
+                            </span>
+</div>
+<div class="flex items-center justify-between mt-3">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-healing-green flex items-center justify-center text-[10px]">🐱</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-quiet-blue flex items-center justify-center text-[10px]">🐶</div>
+</div>
+<span class="text-xs text-text-secondary">4.2k 收藏</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="waterfall-item">
+<div class="bg-surface-card rounded-3xl overflow-hidden shadow-sm border border-black/5">
+<div class="relative h-64">
+<img alt="Forest Mist" class="w-full h-full object-cover" data-alt="dense green forest with morning mist and sunlight filtering through the canopy tall trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6FXoU6YRGQMBzwxzJZB_H3M4Bp9Znhaky0EDOj_hpU3eK_zViAOJHDH-MfjAtE9L_GHA4_5LiivBB1QNQC1voxmcHOp7sZ-yI_Pm8TBTolDROOWEP_PheJD1vv-zjk-ePw48cni-eds61lnLlSei45MuCVz1ccYpztwgvo9hMaaitYMhhQx8TanvuwTKGrXDC_BDxTRhoTFW-eK4mHzlwbdwq9wEmrJqmnVMzeV04w1jVNlxu_17OqmQ0h9pUKT47t987rbhCKXg"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded-lg">
+<span class="text-[10px] font-bold text-secondary">#周末出逃计划</span>
+</div>
+</div>
+<div class="p-3">
+<h3 class="font-headline-lg text-sm mb-2">大氧吧：森林秘境徒步</h3>
+<p class="text-[10px] text-text-secondary line-clamp-2 mb-2">适合周六出发，包含3个核心打卡点...</p>
+<div class="flex items-center gap-1 text-primary-container font-bold text-[10px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="route">route</span>
+                            途径：深处林道 → 溪流
+                        </div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="waterfall-item">
+<div class="bg-surface-card rounded-3xl overflow-hidden shadow-sm border border-black/5">
+<div class="relative h-40">
+<img alt="Gallery" class="w-full h-full object-cover" data-alt="minimalist art gallery with high white ceilings and a single colorful abstract painting on the wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGJfKYU91cYg_NG89kNp9OXs-I9DDnn7qnDvhH85ZUf-CsTglZGLpayQLApRqR7xN8h0exZKV4ojG6JaulRSHUlWokBOWY8heBd5WG46palzx_r4VSF_4JrAAqqnpm2BP2bsVXlhXhfhAGNms8KuPQZUO0OiHdVafuFOrR2y2WiILpsRoJ55cj-XiYmDkFXWMU7SAwJPrtDRbtsRO9rXxJKEq-u9hW3d-6b3h-_LLm0xNlDX763UOJ8pCnV_t4DeQCyuuY5oM5cq0"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded-lg">
+<span class="text-[10px] font-bold text-bean-brown">#文艺慢生活</span>
+</div>
+</div>
+<div class="p-3">
+<h3 class="font-headline-lg text-sm mb-2">M50 艺术园半日游</h3>
+<div class="flex items-center justify-between">
+<div class="bg-warm-orange px-2 py-1 rounded-lg">
+<span class="text-[10px] text-primary">☕️ 精选咖啡店</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="waterfall-item">
+<div class="bg-surface-card rounded-3xl overflow-hidden shadow-sm border border-black/5">
+<div class="relative h-56">
+<img alt="Night Market" class="w-full h-full object-cover" data-alt="vibrant street food stalls at night with neon signs and steam rising from cooking pots" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMt5trbxhfNOivw4OiFjVBYzSnEYnE49F-pvsnXkh0oeicHL8qgjY4eRX2iBBOY3cPVmQRhvipkLU-PhuOO7jBoJ4xZHZIK1niMfvJVJJtWErsS8j6zyNwceDdBbeqDI7JKyLYS1fEFvkQYgsn967LJaoBH1Xefu2_X-3rvVgWRWVkbdR1Tuk7p366Z1159qgMVNWNeNinOnCw0L1QlI9YtPDb-03yNcOPUMX6-IuzTo1z2fri7gQVD3T_o0lUtdJ6Saec0IIrHFw"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded-lg">
+<span class="text-[10px] font-bold text-orange-600">#深夜食堂</span>
+</div>
+</div>
+<div class="p-3">
+<h3 class="font-headline-lg text-sm mb-2">古镇夜市必吃榜</h3>
+<p class="text-[10px] text-text-secondary mb-3">5处宝藏小吃，人均¥30吃撑</p>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold text-primary bg-primary-fixed px-2 py-0.5 rounded-full">高评价</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pt-2 pb-8 px-4 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-lg rounded-t-[32px] border-t border-zinc-100 dark:border-zinc-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<!-- Active Item: 探索 -->
+<a class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20 rounded-2xl px-6 py-1.5 transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-be-vietnam-pro font-medium text-[10px]">探索</span>
+</a>
+<!-- Inactive Item: 路径 -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-6 py-1.5 transition-transform duration-200 active:scale-90 hover:text-orange-500" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="route">route</span>
+<span class="font-be-vietnam-pro font-medium text-[10px]">路径</span>
+</a>
+<!-- Inactive Item: 我的 -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-6 py-1.5 transition-transform duration-200 active:scale-90 hover:text-orange-500" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-be-vietnam-pro font-medium text-[10px]">我的</span>
+</a>
+</nav>
+<!-- Floating Action Button for Check-in (Contextual) -->
+<button class="fixed right-6 bottom-28 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="add_location_alt" style="font-variation-settings: 'FILL' 1;">add_location_alt</span>
+</button>
+</body></html>

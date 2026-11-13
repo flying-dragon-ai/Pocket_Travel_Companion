@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-card": "#FFFFFF",
+                    "on-primary-fixed": "#370e00",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#00731e",
+                    "on-secondary-fixed-variant": "#005313",
+                    "quiet-blue": "#E3F2FD",
+                    "surface-bright": "#fff8f6",
+                    "surface-variant": "#f4ded6",
+                    "secondary-fixed": "#94f990",
+                    "text-primary": "#2D3436",
+                    "background-subtle": "#F8F9FA",
+                    "surface-tint": "#a53c02",
+                    "secondary-container": "#91f78e",
+                    "surface-container-low": "#fff1ec",
+                    "on-tertiary-container": "#453800",
+                    "error-container": "#ffdad6",
+                    "surface": "#fff8f6",
+                    "primary-container": "#ff7e45",
+                    "stress-red": "#FF5252",
+                    "on-tertiary-fixed": "#221b00",
+                    "tertiary-fixed": "#ffe16d",
+                    "on-error": "#ffffff",
+                    "tertiary": "#705d00",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#7e2c00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#dfc0b5",
+                    "background": "#fff8f6",
+                    "on-surface": "#241915",
+                    "primary-fixed": "#ffdbce",
+                    "photo-yellow": "#FFC107",
+                    "secondary": "#006e1c",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "outline": "#8b7268",
+                    "on-secondary-fixed": "#002204",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "surface-container": "#ffe9e2",
+                    "on-primary-container": "#682300",
+                    "inverse-primary": "#ffb598",
+                    "on-primary": "#ffffff",
+                    "healing-green": "#E8F5E9",
+                    "on-background": "#241915",
+                    "text-secondary": "#636E72",
+                    "primary": "#a53c02",
+                    "bean-brown": "#8D6E63",
+                    "surface-dim": "#ebd6ce",
+                    "secondary-fixed-dim": "#78dc77",
+                    "tertiary-container": "#bfa100",
+                    "inverse-surface": "#3b2e29",
+                    "primary-fixed-dim": "#ffb598",
+                    "warm-orange": "#FFF3E0",
+                    "surface-container-high": "#fae4dc",
+                    "inverse-on-surface": "#ffede7",
+                    "surface-container-highest": "#f4ded6",
+                    "on-surface-variant": "#57423a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "card-padding": "16px",
+                    "stack-tight": "8px",
+                    "section-gap": "24px",
+                    "gutter-grid": "12px",
+                    "margin-page": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "stat-bean": ["Be Vietnam Pro"],
+                    "headline-xl": ["Be Vietnam Pro"],
+                    "label-caps": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "stat-bean": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-xl": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tag-active {
+            @apply bg-primary-container text-on-primary-container border-transparent;
+        }
+        .tag-inactive {
+            @apply bg-white border-outline-variant text-on-surface-variant;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen font-body-md text-on-background">
+<!-- Top Navigation Bar -->
+<nav class="bg-white/80 dark:bg-stone-900/80 backdrop-blur-md border-b border-orange-100/50 dark:border-stone-800 shadow-sm docked full-width top-0 sticky z-50 flex justify-between items-center px-4 h-16 w-full">
+<div class="flex items-center gap-2 active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-orange-500 dark:text-orange-400">arrow_back</span>
+</div>
+<h1 class="font-be-vietnam-pro font-bold text-lg text-orange-500 dark:text-orange-400">口袋旅行搭子</h1>
+<div class="flex items-center gap-2 active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-stone-500">more_horiz</span>
+</div>
+</nav>
+<main class="px-margin-page pt-section-gap pb-32">
+<!-- Guidance Header -->
+<header class="mb-section-gap">
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-stack-tight">挑选你的兴趣标签</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant opacity-80">告诉我们你向往的旅行样貌，我们将为你精准匹配最契合的灵魂搭子与路线。</p>
+</header>
+<!-- Illustration Buddy Section -->
+<div class="mb-section-gap bg-surface-container-low rounded-[2rem] p-6 flex items-center gap-4 border border-orange-100/30">
+<div class="w-20 h-20 flex-shrink-0 bg-white rounded-full overflow-hidden shadow-sm">
+<img alt="Travel Buddy Avatar" class="w-full h-full object-cover" data-alt="cute orange organic shaped character with large friendly eyes and a small camera, soft rounded design style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCErxQOgztR1GAK3vkTESVs3emoVFsKnNj8MQiAow98-UcwFKdALP688R33aElSE7L3qJDnYfaSK6__8fdkv-ImKC7N5eaLGWqLFphFnZvUWZsvaC9uj8l2_VBhDLrIQ-9gcLcTwRowW-Ss14q-f_5ZC0zPTxz0UmXVoW5tl1JT-SglpDvdnwr-aG587pdYyyNJjdkd8mDCPokF_kxg8Xm0ihkWSDM4NuqbwuXZ_Upxjs0Oe4iDbCg0LDL2WFSPn8KJlDaDNEcDgsM"/>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg text-primary">“选好标签，出发去治愈！”</p>
+<p class="font-body-md text-body-md text-on-surface-variant">已有 1,204 位搭子和你志趣相投</p>
+</div>
+</div>
+<!-- Tag Selection Grid -->
+<section class="space-y-section-gap">
+<div>
+<h3 class="font-label-caps text-label-caps text-outline mb-gutter-grid flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">explore</span> 热门探索
+                </h3>
+<div class="flex flex-wrap gap-3">
+<!-- Active Tag -->
+<button class="px-5 py-2.5 rounded-xl border-2 border-transparent bg-primary-container text-on-primary-container font-body-lg text-body-lg shadow-sm active:scale-95 transition-all">
+                        历史建筑
+                    </button>
+<!-- Inactive Tags -->
+<button class="px-5 py-2.5 rounded-xl border-2 border-outline-variant bg-white text-on-surface-variant font-body-lg text-body-lg hover:border-primary active:scale-95 transition-all">
+                        咖啡馆
+                    </button>
+<button class="px-5 py-2.5 rounded-xl border-2 border-outline-variant bg-white text-on-surface-variant font-body-lg text-body-lg hover:border-primary active:scale-95 transition-all">
+                        自然风光
+                    </button>
+<button class="px-5 py-2.5 rounded-xl border-2 border-transparent bg-primary-container text-on-primary-container font-body-lg text-body-lg shadow-sm active:scale-95 transition-all">
+                        艺术展览
+                    </button>
+<button class="px-5 py-2.5 rounded-xl border-2 border-outline-variant bg-white text-on-surface-variant font-body-lg text-body-lg hover:border-primary active:scale-95 transition-all">
+                        潮牌店
+                    </button>
+<button class="px-5 py-2.5 rounded-xl border-2 border-outline-variant bg-white text-on-surface-variant font-body-lg text-body-lg hover:border-primary active:scale-95 transition-all">
+                        夜生活
+                    </button>
+</div>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-outline mb-gutter-grid flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">local_cafe</span> 治愈时光
+                </h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-xl border-2 border-outline-variant bg-white text-on-surface-variant font-body-lg text-body-lg hover:border-primary active:scale-95 transition-all">
+                        猫咖
+                    </button>
+<button class="px-5 py-2.5 rounded-xl border-2 border-transparent bg-primary-container text-on-primary-container font-body-lg text-body-lg shadow-sm active:scale-95 transition-all">
+                        手作DIY
+                    </button>
+<button class="px-5 py-2.5 rounded-xl border-2 border-outline-variant bg-white text-on-surface-variant font-body-lg text-body-lg hover:border-primary active:scale-95 transition-all">
+                        城市漫步
+                    </button>
+<button class="px-5 py-2.5 rounded-xl border-2 border-outline-variant bg-white text-on-surface-variant font-body-lg text-body-lg hover:border-primary active:scale-95 transition-all">
+                        书店发呆
+                    </button>
+</div>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-outline mb-gutter-grid flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">outdoor_grill</span> 户外体验
+                </h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-xl border-2 border-outline-variant bg-white text-on-surface-variant font-body-lg text-body-lg hover:border-primary active:scale-95 transition-all">
+                        露营
+                    </button>
+<button class="px-5 py-2.5 rounded-xl border-2 border-outline-variant bg-white text-on-surface-variant font-body-lg text-body-lg hover:border-primary active:scale-95 transition-all">
+                        徒步
+                    </button>
+<button class="px-5 py-2.5 rounded-xl border-2 border-outline-variant bg-white text-on-surface-variant font-body-lg text-body-lg hover:border-primary active:scale-95 transition-all">
+                        滑板
+                    </button>
+</div>
+</div>
+</section>
+<!-- Emotional Hint -->
+<div class="mt-section-gap p-card-padding bg-warm-orange rounded-xl border border-orange-200/50">
+<p class="font-body-md text-body-md text-on-primary-container flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">info</span>
+<span>你可以随时修改这些标签，系统会根据你的心情变化重新推荐路线。</span>
+</p>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 w-full bg-white/90 dark:bg-stone-900/90 backdrop-blur-lg border-t border-orange-100/30 px-6 pb-8 pt-4 z-50">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-lg text-headline-lg py-4 rounded-2xl shadow-lg active:scale-95 transition-all flex justify-center items-center gap-2">
+                保存兴趣偏好
+                <span class="material-symbols-outlined">check_circle</span>
+</button>
+</div>
+</footer>
+<!-- Global Navigation Anchor (Suppressed based on Task Focus - Task-Focused page with clear Save action) -->
+<!-- But keeping a minimal structure for shell integrity if needed -->
+<div class="hidden">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="material-symbols-outlined" data-icon="pets">pets</span>
+<span class="material-symbols-outlined" data-icon="person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+</body></html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#3b2e29",
+                        "on-primary-fixed-variant": "#7e2c00",
+                        "text-secondary": "#636E72",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "secondary-fixed": "#94f990",
+                        "primary-fixed": "#ffdbce",
+                        "on-secondary-container": "#00731e",
+                        "stress-red": "#FF5252",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#ffb598",
+                        "text-primary": "#2D3436",
+                        "on-error": "#ffffff",
+                        "photo-yellow": "#FFC107",
+                        "quiet-blue": "#E3F2FD",
+                        "on-surface-variant": "#57423a",
+                        "background-subtle": "#F8F9FA",
+                        "outline": "#8b7268",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-background": "#241915",
+                        "secondary-container": "#91f78e",
+                        "on-primary-fixed": "#370e00",
+                        "healing-green": "#E8F5E9",
+                        "primary-container": "#ff7e45",
+                        "surface-container": "#ffe9e2",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#fae4dc",
+                        "secondary-fixed-dim": "#78dc77",
+                        "surface-variant": "#f4ded6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fff8f6",
+                        "inverse-on-surface": "#ffede7",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fff8f6",
+                        "inverse-primary": "#ffb598",
+                        "on-surface": "#241915",
+                        "on-tertiary-container": "#453800",
+                        "surface-container-low": "#fff1ec",
+                        "warm-orange": "#FFF3E0",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#ebd6ce",
+                        "on-primary-container": "#682300",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#f4ded6",
+                        "surface-card": "#FFFFFF",
+                        "on-secondary-fixed": "#002204",
+                        "tertiary-fixed": "#ffe16d",
+                        "surface-tint": "#a53c02",
+                        "on-secondary-fixed-variant": "#005313",
+                        "primary": "#a53c02",
+                        "bean-brown": "#8D6E63",
+                        "background": "#fff8f6",
+                        "secondary": "#006e1c",
+                        "tertiary": "#705d00",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#bfa100",
+                        "outline-variant": "#dfc0b5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Be Vietnam Pro", "sans-serif"],
+                        "headline-xl": ["Be Vietnam Pro", "sans-serif"],
+                        "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+                        "body-md": ["Plus Jakarta Sans", "sans-serif"],
+                        "label-caps": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .squishy-active:active {
+            transform: scale(0.96);
+            transition: transform 0.1s ease-out;
+        }
+        .tonal-layer-overlap {
+            background: linear-gradient(180deg, rgba(255, 248, 246, 0) 0%, rgba(255, 248, 246, 1) 15%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen font-body-md text-on-background antialiased">
+<!-- Top Navigation Bar (Custom implementation based on Shared Components) -->
+<header class="fixed top-0 w-full z-50 bg-orange-50/80 backdrop-blur-md shadow-sm shadow-orange-100/50 flex justify-between items-center h-16 px-6">
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-orange-100/50 transition-colors squishy-active">
+<span class="material-symbols-outlined text-orange-600">close</span>
+</button>
+</div>
+<h1 class="text-lg font-black text-orange-600 font-headline-lg">导入自媒体链接</h1>
+<div class="w-10"></div> <!-- Spacer for balance -->
+</header>
+<main class="pt-24 pb-40 px-6 max-w-md mx-auto">
+<!-- Brand Illustration / Buddy -->
+<div class="flex flex-col items-center mb-10 text-center">
+<div class="w-32 h-32 mb-6 bg-surface-container rounded-3xl flex items-center justify-center overflow-hidden shadow-inner">
+<img class="w-24 h-24 object-contain" data-alt="A cute, soft-textured orange buddy character holding a digital tablet with sparkles, warm emotional healing style illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5QYsQA8azEYhARj_usGhcJKXOGTqA66zTKTymM4s_OmolmoqqW6fMGukyzi0iDh8L914h9Q6FueznGhtDdNFdr1bFJHclfZYn3r6CzftEEpzWgxLEIS8v50AvCntOuPv-ugHZ0xk-VuD-8q0Vu_QY_wCaUoVcvEegA6CwcF7YotyrTGdPII8i3jZHKZJwc7LvtJi8L_uQtDALUodkSCDpyYh0CLDWV7tdU1VB9f3yCVhnu-XtXVFeBHZ8ttZX3ObW0hAZ_UfXEgg"/>
+</div>
+<p class="text-text-secondary font-body-lg mb-2">智能识别路线信息，开启你的周末灵感</p>
+<div class="flex gap-4 justify-center mt-4">
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-outline-variant shadow-sm">
+<span class="w-4 h-4 bg-red-500 rounded-sm flex items-center justify-center text-[10px] text-white font-bold">小</span>
+<span class="text-xs font-medium text-text-primary">小红书</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-outline-variant shadow-sm">
+<span class="w-4 h-4 bg-black rounded-sm flex items-center justify-center text-[10px] text-white font-bold">抖</span>
+<span class="text-xs font-medium text-text-primary">抖音</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-outline-variant shadow-sm">
+<span class="w-4 h-4 bg-green-500 rounded-sm flex items-center justify-center text-[10px] text-white font-bold">微</span>
+<span class="text-xs font-medium text-text-primary">公众号</span>
+</div>
+</div>
+</div>
+<!-- Input Section -->
+<div class="space-y-6">
+<div class="relative">
+<label class="block mb-2 ml-1 text-xs font-bold text-bean-brown tracking-widest uppercase">粘贴链接</label>
+<div class="relative group">
+<textarea class="w-full bg-white border-2 border-surface-variant rounded-3xl p-5 text-body-lg focus:border-primary-container focus:ring-0 transition-all shadow-sm placeholder:text-outline-variant resize-none" placeholder="https://..." rows="4"></textarea>
+<button class="absolute bottom-4 right-4 bg-warm-orange text-primary font-bold py-2 px-5 rounded-2xl border border-primary-fixed-dim shadow-sm hover:bg-primary-fixed transition-colors squishy-active flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">content_paste</span>
+<span>粘贴</span>
+</button>
+</div>
+</div>
+<!-- Hint Cards (Bento Style) -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-healing-green/50 p-4 rounded-3xl border border-healing-green flex flex-col gap-2">
+<span class="material-symbols-outlined text-secondary">auto_awesome</span>
+<span class="text-xs font-bold text-on-secondary-container">自动解析地点</span>
+<span class="text-[10px] text-on-secondary-container/70">提取文中提到的景点与路线</span>
+</div>
+<div class="bg-quiet-blue/50 p-4 rounded-3xl border border-quiet-blue flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">map</span>
+<span class="text-xs font-bold text-on-primary-container">生成可视化地图</span>
+<span class="text-[10px] text-on-primary-container/70">一键将笔记转化为步行地图</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 w-full z-50 rounded-t-[32px] bg-white shadow-[0_-8px_30px_rgba(165,60,2,0.08)] px-6 pt-6 pb-10">
+<div class="max-w-md mx-auto space-y-5">
+<div class="flex justify-between items-center px-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-surface-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<p class="text-[10px] text-text-secondary leading-none mb-1">当前余额</p>
+<p class="text-stat-bean font-headline-lg text-on-surface">1,240 <span class="text-xs font-normal text-text-secondary">豆子</span></p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-orange-50 rounded-xl border border-orange-100">
+<span class="material-symbols-outlined text-[14px] text-orange-600">info</span>
+<span class="text-xs text-orange-600 font-medium">消耗 40 豆子</span>
+</div>
+</div>
+<button class="w-full h-16 bg-primary-container text-white font-bold text-lg rounded-2xl shadow-lg shadow-orange-200 hover:brightness-105 transition-all squishy-active flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>一键导入</span>
+</button>
+</div>
+</footer>
+<!-- Background Decoration -->
+<div class="fixed top-20 -left-10 w-40 h-40 bg-orange-200/20 blur-[80px] rounded-full -z-10"></div>
+<div class="fixed bottom-40 -right-10 w-60 h-60 bg-healing-green/30 blur-[100px] rounded-full -z-10"></div>
+</body></html>

@@ -1,0 +1,22 @@
+@use '../variables.scss' as *;
+
+.field {
+  display: flex;
+  align-items: center;
+  min-height: 88rpx;
+  padding: 0 $space-2;
+  border-radius: $radius-md;
+  background: $color-white;
+  border: 2rpx solid #ececec;
+}
+
+.field--focus {
+  border-color: $color-primary;
+  box-shadow: 0 0 0 4rpx rgba(255, 125, 0, 0.12);
+}
+
+.field--disabled {
+  background: #f4f4f4;
+  color: #bcbcbc;
+  border-color: #e8e8e8;
+}

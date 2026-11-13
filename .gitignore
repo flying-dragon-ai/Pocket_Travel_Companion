@@ -1,0 +1,100 @@
+# ══════════════════════════════════════════════════════════════
+# 原则：能重新生成的、含隐私的、纯本地的，都不进仓库。
+# 例外：lockfile 要传（锁定依赖版本），.env.example 要传（变量模板）。
+# ══════════════════════════════════════════════════════════════
+
+# ── 依赖目录：npm install 就能恢复 ──
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── 构建产物：每次 build 都会生成 ──
+dist/
+build/
+unpackage/
+.vite/
+.next/
+.nuxt/
+coverage/
+*.tsbuildinfo
+
+# ── 本地环境变量：可能含密钥 ──
+.env
+.env.local
+.env.*.local
+.env.*
+!.env.example
+!.env.*.example
+
+# ── 证书 / 私钥 / 数据库导出：一旦泄露很难补救 ──
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+*.dump
+*.sql.gz
+*.sqlite
+*.sqlite3
+*.db
+
+# ── 日志与缓存 ──
+logs/
+*.log
+.cache/
+.temp/
+.tmp/
+temp/
+tmp/
+*.tmp
+*.temp
+tmp-mp-test/
+.nyc_output/
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.playwright-mcp/
+
+# ── IDE / 编辑器配置 ──
+.vscode/
+.idea/
+.history/
+*.swp
+*.swo
+
+# ── 系统文件 ──
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ── 微信开发者工具本地缓存 ──
+project.private.config.json
+*.bak
+
+# ── 生成物：一条命令可重生成 ──
+# bugs.csv ← npm run validate:coverage-matrix
+/bugs.csv
+# /archive/ ← 清理时移出构建的文件暂存区（锚定根目录，避免误伤 openspec/changes/archive/）
+/archive/
+# deadcode-report.json ← npm run deadcode:report
+/deadcode-report.json
+
+# ── AI 助手本地文件 ──
+.claude/
+CLAUDE.local.md
+.claude.json
+.claude.json.backup
+.ace-tool/
+.cursor/
+.windsurf/
+
+# 历史重写前的 .git 备份（本地保留，不进仓库）
+/.git-backup/

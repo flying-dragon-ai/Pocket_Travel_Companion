@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "text-primary": "#2D3436",
+                        "secondary-container": "#91f78e",
+                        "quiet-blue": "#E3F2FD",
+                        "error": "#ba1a1a",
+                        "on-surface": "#241915",
+                        "surface-container-highest": "#f4ded6",
+                        "secondary-fixed-dim": "#78dc77",
+                        "text-secondary": "#636E72",
+                        "on-surface-variant": "#57423a",
+                        "primary-fixed": "#ffdbce",
+                        "surface-tint": "#a53c02",
+                        "bean-brown": "#8D6E63",
+                        "inverse-surface": "#3b2e29",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-secondary-container": "#00731e",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-variant": "#f4ded6",
+                        "outline": "#8b7268",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#dfc0b5",
+                        "surface-container": "#ffe9e2",
+                        "secondary-fixed": "#94f990",
+                        "background": "#fff8f6",
+                        "secondary": "#006e1c",
+                        "photo-yellow": "#FFC107",
+                        "inverse-primary": "#ffb598",
+                        "surface-container-high": "#fae4dc",
+                        "on-secondary-fixed-variant": "#005313",
+                        "warm-orange": "#FFF3E0",
+                        "tertiary-container": "#bfa100",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#fff1ec",
+                        "healing-green": "#E8F5E9",
+                        "surface-dim": "#ebd6ce",
+                        "primary": "#a53c02",
+                        "on-primary-fixed": "#370e00",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#ffede7",
+                        "surface-container-lowest": "#ffffff",
+                        "background-subtle": "#F8F9FA",
+                        "stress-red": "#FF5252",
+                        "on-primary-fixed-variant": "#7e2c00",
+                        "on-primary-container": "#682300",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary-fixed": "#002204",
+                        "on-tertiary-container": "#453800",
+                        "tertiary": "#705d00",
+                        "on-background": "#241915",
+                        "primary-fixed-dim": "#ffb598",
+                        "surface": "#fff8f6",
+                        "surface-card": "#FFFFFF",
+                        "primary-container": "#ff7e45"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "16px",
+                        "gutter-grid": "12px",
+                        "section-gap": "24px",
+                        "unit": "4px",
+                        "stack-tight": "8px",
+                        "card-padding": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-caps": ["Plus Jakarta Sans"],
+                        "stat-bean": ["Be Vietnam Pro"],
+                        "headline-xl": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "stat-bean": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "headline-xl": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .poster-shadow {
+            box-shadow: 0 20px 40px -10px rgba(165, 60, 2, 0.15);
+        }
+        .squishy-btn:active {
+            transform: scale(0.96);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-text-primary font-body-md min-h-screen flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-stone-900/80 backdrop-blur-md font-['Be_Vietnam_Pro'] font-semibold text-stone-800 dark:text-stone-100 docked full-width top-0 sticky z-50 border-b border-stone-100 dark:border-stone-800 shadow-sm flex items-center justify-between px-4 h-16 w-full max-w-md mx-auto">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-orange-500 dark:text-orange-400" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-orange-500">分享美好瞬间</h1>
+<button class="px-4 py-1.5 rounded-full text-orange-500 dark:text-orange-400 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors active:scale-95 duration-200 font-semibold">
+            完成
+        </button>
+</header>
+<main class="flex-1 w-full max-w-md px-margin-page py-6 flex flex-col gap-6 mb-24">
+<!-- Poster Card -->
+<div class="bg-white rounded-[32px] p-4 poster-shadow border border-surface-container-high/30">
+<!-- Image Section with Overlay -->
+<div class="relative w-full aspect-[3/4] rounded-[24px] overflow-hidden group">
+<img alt="Scenic mountain view" class="w-full h-full object-cover" data-alt="Stunning aerial view of a misty pine forest valley during golden hour, warm ethereal sunlight filtering through trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQPmigFJ-jtH03chGPRhnvxq7KMiKhX1FiaB4wxvdv3TyT6BIsiNc4Y4J0A9rEq1rW1Nf18mpapj9zDpFsXInW-I_89vy21yQp1JD75b6aKoDEt5mXWMBoTpq0mUNv5OmJ2wqISdgd_jENyofJq1DOH14yyIM__i7DeJ_lecRAUVOTtnowyKDpltLuSm02B6aFtyBxworckffirdlJoFGyi88PCHMk3gxD5ksZvaHLM7PYZWqPZcsw0KXyIINZ2-_EiWIYWuoAVQ0"/>
+<!-- Overlay Content -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 p-6 flex flex-col justify-between">
+<div class="flex justify-start">
+<span class="bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-label-caps border border-white/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome">auto_awesome</span>
+                            #治愈 #松弛
+                        </span>
+</div>
+<div class="bg-white/10 backdrop-blur-xl rounded-2xl p-4 border border-white/20 relative group/edit">
+<p class="text-white font-headline-lg italic leading-relaxed text-center">
+                            “在山海间，找回走丢的自己”
+                        </p>
+<button class="absolute -top-2 -right-2 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- User Card Section -->
+<div class="mt-6 px-2 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-14 h-14 rounded-full border-2 border-primary/20 p-0.5">
+<img alt="User profile" class="w-full h-full object-cover rounded-full" data-alt="Close-up portrait of a smiling young woman with warm natural lighting and soft blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsaDvZ-3sUaGkJ1dopRnYH0QQsKAP4pQVEZO3VeV37WS6FI7GtZNkHVUamVajY4k_H_PfmSO9mmtzGWunrVROuxhykeouvee3eBIe50_zFFPwJdXLbZsdCtE0YnNy-PiVtzGER9JmVAhLM-5ECSlmqXELY3jUa4c8-NvdvdbIK5ZJ7yU3Sq4FHf7lRybhNvWz0_ooBDWBX5AHZcgRHLKqqkwrj5Gml-nwAZQx3RtDxeEgpvd7BR5XKo6KgweU8RTKvgJh-WAn_21E"/>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-lg text-primary text-[18px]">木子喵酱</h3>
+<p class="text-text-secondary text-body-md">在城市的缝隙里寻找森林 🌿</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-16 h-16 bg-surface-container-low rounded-xl p-1 border border-primary/10">
+<img alt="App QR Code" class="w-full h-full opacity-80" data-alt="Clean minimalist QR code with rounded corners and a tiny orange paw icon in the center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkEJO8ir63C8VdjzDPx5a8Wj1UhMy9Uy9iyW_hHrProxJ7iSs__AFX52vKAKqYwg0zzNNu12ddJVtnF83UiEoKmJN6lkuLjLqxoTNm3rpwZj-LDsQn2sxOIBl02RrxNn1uz5hO4_-qjOKP8u5RZx4J_AsVxCd3eVu1B9Wo7VmynotveKE_dNk2OEBPAIxp0GuCfkqQ8Ys3ZHh2UzVMsAzdh8ghCRxHFUrHCImd5f5duW_GtZOkYzMliWaYC3Grp74UZR3ZpdVdQTY"/>
+</div>
+<span class="text-[10px] text-bean-brown font-medium tracking-tight">扫码开启治愈</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3 px-2">
+<button class="squishy-btn w-full bg-primary text-on-primary py-4 rounded-xl font-headline-lg flex items-center justify-center gap-2 shadow-md"><span class="material-symbols-outlined" data-icon="send">send</span> 分享给好友 <span class="text-[14px] opacity-90 font-normal"> (领 10 豆子)</span></button>
+<button class="squishy-btn w-full bg-warm-orange text-primary py-4 rounded-xl font-headline-lg flex items-center justify-center gap-2 border border-primary/10"><span class="material-symbols-outlined" data-icon="camera_roll">camera_roll</span> 分享到朋友圈 <span class="text-[14px] opacity-80 font-normal"> (领 10 豆子)</span></button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white dark:bg-stone-950 font-['Be_Vietnam_Pro'] text-[10px] font-medium docked full-width bottom-0 rounded-t-[32px] border-t border-stone-100 dark:border-stone-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-6 pt-3 max-w-md mx-auto left-1/2 -translate-x-1/2"><!-- 探索 -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-4 py-1.5 hover:text-orange-400 transition-all active:scale-90 transition-transform cubic-bezier(0.34, 1.56, 0.64, 1)" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>探索</span>
+</a>
+<!-- 路径 Active -->
+<a class="flex flex-col items-center justify-center bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-300 rounded-2xl px-4 py-1.5 active:scale-90 transition-transform cubic-bezier(0.34, 1.56, 0.64, 1)" href="#">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span>路径</span>
+</a>
+<!-- 我的 -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-4 py-1.5 hover:text-orange-400 transition-all active:scale-90 transition-transform cubic-bezier(0.34, 1.56, 0.64, 1)" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>我的</span>
+</a></nav>
+</body></html>

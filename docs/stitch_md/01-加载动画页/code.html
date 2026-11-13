@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>情绪漫游 - 开启心灵旅程</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#005313",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#00731e",
+                        "on-primary-fixed-variant": "#7e2c00",
+                        "surface-tint": "#a53c02",
+                        "surface-container-high": "#fae4dc",
+                        "primary-fixed-dim": "#ffb598",
+                        "secondary-fixed": "#94f990",
+                        "healing-green": "#E8F5E9",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#dfc0b5",
+                        "on-primary-fixed": "#370e00",
+                        "secondary-fixed-dim": "#78dc77",
+                        "on-surface-variant": "#57423a",
+                        "quiet-blue": "#E3F2FD",
+                        "inverse-on-surface": "#ffede7",
+                        "background-subtle": "#F8F9FA",
+                        "background": "#fff8f6",
+                        "warm-orange": "#FFF3E0",
+                        "surface-card": "#FFFFFF",
+                        "surface": "#fff8f6",
+                        "text-primary": "#2D3436",
+                        "on-secondary-fixed": "#002204",
+                        "primary-fixed": "#ffdbce",
+                        "on-tertiary-fixed": "#221b00",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#ebd6ce",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#453800",
+                        "surface-bright": "#fff8f6",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-error-container": "#93000a",
+                        "on-background": "#241915",
+                        "bean-brown": "#8D6E63",
+                        "secondary-container": "#91f78e",
+                        "inverse-primary": "#ffb598",
+                        "secondary": "#006e1c",
+                        "on-primary-container": "#682300",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-container-low": "#fff1ec",
+                        "outline": "#8b7268",
+                        "text-secondary": "#636E72",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#241915",
+                        "primary": "#a53c02",
+                        "photo-yellow": "#FFC107",
+                        "tertiary": "#705d00",
+                        "tertiary-container": "#bfa100",
+                        "surface-variant": "#f4ded6",
+                        "inverse-surface": "#3b2e29",
+                        "surface-container": "#ffe9e2",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffe16d",
+                        "stress-red": "#FF5252",
+                        "primary-container": "#ff7e45",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#f4ded6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-grid": "12px",
+                        "card-padding": "16px",
+                        "stack-tight": "8px",
+                        "section-gap": "24px",
+                        "margin-page": "16px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "stat-bean": ["Be Vietnam Pro"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-caps": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "headline-xl": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "stat-bean": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-lg": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "headline-xl": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @keyframes subtle-breath {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        .animate-breath {
+            animation: subtle-breath 4s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .animate-float {
+            animation: floating 3s ease-in-out infinite;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen flex flex-col items-center justify-center">
+<!-- TopAppBar Content Shell (JSON Reference) -->
+<nav class="fixed top-0 w-full z-50 bg-orange-50/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-orange-100 dark:border-orange-900/30 shadow-sm shadow-orange-200/20 flex items-center justify-between px-4 h-14">
+<div class="flex items-center gap-2">
+<button class="hover:bg-orange-100/50 dark:hover:bg-orange-900/20 rounded-full transition-colors p-2 active:scale-95 transition-transform duration-200 ease-out">
+<span class="material-symbols-outlined text-orange-500 dark:text-orange-400">arrow_back</span>
+</button>
+</div>
+<h1 class="font-['Be_Vietnam_Pro'] font-bold text-lg tracking-tight text-orange-600 dark:text-orange-400">情绪漫游</h1>
+<div class="w-10"></div> <!-- Placeholder for centering -->
+</nav>
+<!-- Main Canvas: NFC Loading Style Shell -->
+<main class="relative w-full h-full flex flex-col items-center justify-center px-margin-page overflow-hidden">
+<!-- Background Ambient "Breath" Layers -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-warm-orange opacity-40 blur-[100px] animate-breath"></div>
+<div class="absolute bottom-[-5%] right-[-5%] w-[50%] h-[50%] rounded-full bg-healing-green opacity-30 blur-[80px] animate-breath" style="animation-delay: 2s;"></div>
+</div>
+<!-- Central Buddy Character (Tactile/Modern Softness) -->
+<div class="relative z-10 flex flex-col items-center text-center max-w-xs">
+<!-- The "Buddy" Illustration Container -->
+<div class="relative mb-section-gap group">
+<!-- Outer Glow -->
+<div class="absolute inset-0 bg-primary-container opacity-20 blur-3xl rounded-full group-hover:opacity-30 transition-opacity"></div>
+<!-- Main Character -->
+<div class="relative w-56 h-56 md:w-64 md:h-64 animate-float">
+<img alt="Cute Buddy Character" class="w-full h-full object-contain drop-shadow-2xl" data-alt="Close-up of a high-quality 3D render of a fluffy Golden Retriever puppy toy with expressive soft eyes and a friendly smile, studio lighting, pastel background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOMXk64KJSM-EH1boooh56BHdgLRNqAbU-6z3ofc_JonjWzi7oeqsAm1Reebpyq5CRHBHYQEN1cTO0k2DxCuYbYs4HLbFE5K2tfNYI6JHFNzrJmMp1tW_XF_DSqKum1w0JKaERLufC9MMjlzlYXGhAcARgtF04crZrLRogyT2ur2LCk2wLkDi6vvWVLuPsDAIKi09U4xWd2h1pcAhi89nV5yxNwijXlbFNBFof-y4Kw6uIor4HGOIbR5HtmTMvZygxSybuXdGHtQk"/>
+</div>
+<!-- Bean Icon Floating Element -->
+<div class="absolute -top-4 -right-2 bg-surface-card p-3 rounded-2xl shadow-lg border border-outline-variant/30 flex items-center gap-2 animate-breath">
+<span class="material-symbols-outlined text-photo-yellow" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-stat-bean text-stat-bean text-bean-brown">120</span>
+</div>
+</div>
+<!-- Emotional Guidance Text -->
+<div class="space-y-stack-tight">
+<h2 class="font-headline-xl text-headline-xl text-primary tracking-tight">准备好了吗？</h2>
+<p class="font-body-lg text-body-lg text-text-secondary px-4">
+                    别担心，深呼吸，诚实地面对这一刻的自己
+                </p>
+</div>
+<!-- Tactile Loading Ritual (Progress Metaphor) -->
+<div class="mt-section-gap w-full space-y-unit">
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden border border-outline-variant/10">
+<div class="h-full bg-primary-container w-[65%] rounded-full relative">
+<div class="absolute right-0 top-0 bottom-0 w-4 bg-white/30 blur-sm"></div>
+</div>
+</div>
+<div class="flex justify-between items-center text-label-caps font-label-caps text-text-secondary opacity-60">
+<span>连接情绪碎片...</span>
+<span>65%</span>
+</div>
+</div>
+</div>
+<!-- Scenario Tags (Floating Pills) -->
+<div class="absolute bottom-16 left-0 right-0 flex justify-center flex-wrap gap-2 px-margin-page opacity-40">
+<span class="px-4 py-2 rounded-full bg-warm-orange text-primary border border-primary/10 font-label-caps"># 放空时刻</span>
+<span class="px-4 py-2 rounded-full bg-quiet-blue text-secondary border border-secondary/10 font-label-caps"># 职场解压</span>
+<span class="px-4 py-2 rounded-full bg-healing-green text-on-secondary-container border border-secondary/10 font-label-caps"># 假日潜逃</span>
+</div>
+</main>
+<!-- Implicit Footer / Close Action for Focus -->
+<div class="fixed bottom-8 flex flex-col items-center gap-4 z-50">
+<p class="text-[10px] font-label-caps tracking-widest text-text-secondary/50 uppercase">Healing Ritual in Progress</p>
+</div>
+</body></html>

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "workspaces": {
+    ".": {
+      "entry": [
+        "src/App.vue",
+        "src/pages/**/*.vue",
+        "scripts/quality/*.mjs",
+        "tests/**/*.{test,spec}.ts"
+      ],
+      "project": ["src/**/*.{ts,vue}", "tests/**/*.ts", "scripts/**/*.mjs"],
+      "ignoreDependencies": [
+        "@dcloudio/uni-h5",
+        "@dcloudio/uni-mp-weixin",
+        "@vue/compiler-sfc"
+      ]
+    },
+    "backend-api": {
+      "entry": ["src/routes/index.js", "tests/**/*.{test,spec}.js"],
+      "project": ["src/**/*.js", "tests/**/*.js"],
+      "ignoreDependencies": ["koa-static"]
+    }
+  }
+}

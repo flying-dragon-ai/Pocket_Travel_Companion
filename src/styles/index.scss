@@ -1,0 +1,37 @@
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
+@use './components/button.scss';
+@use './components/tabbar.scss';
+@use './components/tag.scss';
+@use './components/input.scss';
+@use './components/card.scss';
+
+page {
+  background: $color-gray-50;
+  color: $color-gray-700;
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  line-height: $line-height-sm;
+}
+
+.ptc-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: $space-3 $space-2;
+  box-sizing: border-box;
+}
+
+.ptc-section {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin-bottom: $space-3;
+}
+
+.ptc-title {
+  font-size: $font-size-xl;
+  line-height: $line-height-lg;
+  font-weight: $font-weight-bold;
+  color: $color-gray-700;
+}

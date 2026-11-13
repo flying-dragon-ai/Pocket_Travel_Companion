@@ -1,0 +1,57 @@
+$font-family-base: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+
+// Brand colors
+$color-primary: #FF7D00;
+$color-secondary-yellow: #FFE066;
+$color-secondary-yellow-light: #FFF9E6;
+$color-secondary-yellow-dark: #E6B800;
+$color-secondary-green: #99D899;
+$color-secondary-green-light: #F0F9F0;
+$color-secondary-green-dark: #3D993D;
+
+// Neutral colors
+$color-white: #FFFFFF;
+$color-gray-50: #F5F5F5;
+$color-gray-400: #999999;
+$color-gray-500: #666666;
+$color-gray-700: #333333;
+
+// Semantic colors
+$color-success: $color-secondary-green-dark;
+$color-warning: $color-secondary-yellow-dark;
+$color-danger: #FF5252;
+$color-info: #4D9CFF;
+
+// Radius tokens (750 设计稿基准)
+$radius-sm: 16rpx;
+$radius-md: 48rpx;
+$radius-lg: 128rpx;
+$radius-pill: 9999rpx;
+
+// Spacing tokens
+$space-1: 16rpx;
+$space-2: 32rpx;
+$space-3: 48rpx;
+$space-4: 64rpx;
+$space-5: 96rpx;
+
+// Typography tokens
+$font-size-xs: 24rpx;
+$font-size-sm: 28rpx;
+$font-size-md: 32rpx;
+$font-size-lg: 36rpx;
+$font-size-xl: 40rpx;
+$font-size-xxl: 48rpx;
+
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-xs: 32rpx;
+$line-height-sm: 40rpx;
+$line-height-md: 48rpx;
+$line-height-lg: 56rpx;
+
+// Shadow tokens
+$shadow-card: 0 8rpx 24rpx rgba(255, 125, 0, 0.12);
+$shadow-soft: 0 4rpx 16rpx rgba(51, 51, 51, 0.08);

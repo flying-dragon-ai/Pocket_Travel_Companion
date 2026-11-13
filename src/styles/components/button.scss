@@ -1,0 +1,30 @@
+@use '../variables.scss' as *;
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  padding: 0 $space-3;
+  border-radius: $radius-pill;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  transition: all 0.2s ease;
+}
+
+.btn-primary--normal {
+  background: $color-primary;
+  color: $color-white;
+  box-shadow: $shadow-card;
+}
+
+.btn-primary--active {
+  background: #e56f00;
+  color: $color-white;
+}
+
+.btn-primary--disabled {
+  background: $color-gray-400;
+  color: $color-white;
+  opacity: 0.72;
+}

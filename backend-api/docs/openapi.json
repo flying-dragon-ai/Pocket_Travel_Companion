@@ -1,0 +1,304 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Pocket Travel Companion API",
+    "version": "1.0.0",
+    "description": "口袋旅行搭子后端接口文档"
+  },
+  "servers": [
+    {
+      "url": "https://api.pocket-travel-companion.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "ApiSuccess": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "integer", "example": 0 },
+          "message": { "type": "string", "example": "ok" },
+          "data": { "type": "object" }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/v1/auth/wechat/login": {
+      "post": {
+        "summary": "微信登录",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["code"],
+                "properties": {
+                  "code": { "type": "string" },
+                  "nickname": { "type": "string" },
+                  "avatarUrl": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiSuccess" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "summary": "账号密码/开发登录兼容入口",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["code"],
+                "properties": {
+                  "code": { "type": "string" },
+                  "nickname": { "type": "string" },
+                  "avatarUrl": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiSuccess" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/mood-map/submit": {
+      "post": {
+        "summary": "提交情绪问答",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/mood-map/profile": {
+      "get": {
+        "summary": "获取情绪画像",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/mood-map/quick-adjust": {
+      "patch": {
+        "summary": "快速调整情绪",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/routes/generate": {
+      "post": {
+        "summary": "偏好生成路线（成功扣40豆，失败不扣）",
+        "description": "基于情绪/偏好生成路线。成功创建路线后扣 40 豆；生成失败返回业务错误且不扣豆，错误响应如包含 consumedBeans 则为 0。后端内部 run/trace 仅用于排障和审计，不作为前端响应字段暴露。",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/routes/import-link": {
+      "post": {
+        "summary": "链接导入路线（成功扣40豆，失败不扣）",
+        "description": "解析小红书/抖音/公众号链接并生成路线。成功创建路线后扣 40 豆；解析失败返回业务错误且不扣豆，错误响应如包含 consumedBeans 则为 0。后端内部 run/trace 仅用于排障和审计，不作为前端响应字段暴露。",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/routes": {
+      "get": {
+        "summary": "路线列表",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "post": {
+        "summary": "直接创建路线",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/routes/{routeId}": {
+      "get": {
+        "summary": "路线详情",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "routeId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/spots": {
+      "get": {
+        "summary": "景点列表",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/spots/{spotId}": {
+      "get": {
+        "summary": "景点详情",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "spotId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/spots/{spotId}/favorite": {
+      "post": {
+        "summary": "收藏景点",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "spotId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/spots/{spotId}/checkins": {
+      "post": {
+        "summary": "景点打卡（GPS<=500m）",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/spots/{spotId}/comments": {
+      "post": {
+        "summary": "景点评论（+10豆）",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "get": {
+        "summary": "景点评论列表",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/spots/{spotId}/comments/{commentId}/like": {
+      "post": {
+        "summary": "评论点赞",
+        "description": "评论点赞保持幂等：重复点赞返回当前 likeCount，不会重复累加。",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "spotId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/user/profile": {
+      "get": {
+        "summary": "用户资料",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "patch": {
+        "summary": "更新用户资料",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/beans/balance": {
+      "get": {
+        "summary": "豆子余额",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/beans/logs": {
+      "get": {
+        "summary": "豆子流水",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/share/route-poster": {
+      "post": {
+        "summary": "路线分享图",
+        "description": "生成路线分享图，返回现有 posterUrl、shareCode、小程序路径等字段。poster metadata 为后端内部增强，不新增或改变公开响应字段。",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/share/spot-poster": {
+      "post": {
+        "summary": "景点分享图",
+        "description": "生成景点分享图，返回现有 posterUrl、shareCode、小程序路径等字段。请求中的 checkinId 用于后端内部关联与海报素材增强，不新增或改变公开响应字段。",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/share/route": {
+      "post": {
+        "summary": "路线分享码",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/v1/share/{shareCode}": {
+      "get": {
+        "summary": "公开读取分享内容",
+        "parameters": [
+          {
+            "name": "shareCode",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    }
+  },
+  "x-internal-notes": {
+    "notifications": "Notifications 当前仅为数据层预留，本轮不提供公开 notifications API，也不写入 paths 契约。"
+  }
+}

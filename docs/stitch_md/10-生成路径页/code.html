@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: 0;
+            width: 2px;
+            border-left: 2px dashed #dfc0b5;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#3b2e29",
+                      "on-primary-fixed-variant": "#7e2c00",
+                      "text-secondary": "#636E72",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "secondary-fixed": "#94f990",
+                      "primary-fixed": "#ffdbce",
+                      "on-secondary-container": "#00731e",
+                      "stress-red": "#FF5252",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#ffb598",
+                      "text-primary": "#2D3436",
+                      "on-error": "#ffffff",
+                      "photo-yellow": "#FFC107",
+                      "quiet-blue": "#E3F2FD",
+                      "on-surface-variant": "#57423a",
+                      "background-subtle": "#F8F9FA",
+                      "outline": "#8b7268",
+                      "on-tertiary-fixed": "#221b00",
+                      "on-background": "#241915",
+                      "secondary-container": "#91f78e",
+                      "on-primary-fixed": "#370e00",
+                      "healing-green": "#E8F5E9",
+                      "primary-container": "#ff7e45",
+                      "surface-container": "#ffe9e2",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#fae4dc",
+                      "secondary-fixed-dim": "#78dc77",
+                      "surface-variant": "#f4ded6",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fff8f6",
+                      "inverse-on-surface": "#ffede7",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#fff8f6",
+                      "inverse-primary": "#ffb598",
+                      "on-surface": "#241915",
+                      "on-tertiary-container": "#453800",
+                      "surface-container-low": "#fff1ec",
+                      "warm-orange": "#FFF3E0",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#ebd6ce",
+                      "on-primary-container": "#682300",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#f4ded6",
+                      "surface-card": "#FFFFFF",
+                      "on-secondary-fixed": "#002204",
+                      "tertiary-fixed": "#ffe16d",
+                      "surface-tint": "#a53c02",
+                      "on-secondary-fixed-variant": "#005313",
+                      "primary": "#a53c02",
+                      "bean-brown": "#8D6E63",
+                      "background": "#fff8f6",
+                      "secondary": "#006e1c",
+                      "tertiary": "#705d00",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#bfa100",
+                      "outline-variant": "#dfc0b5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "gutter-grid": "12px",
+                      "card-padding": "16px",
+                      "stack-tight": "8px",
+                      "margin-page": "16px",
+                      "section-gap": "24px"
+              },
+              "fontFamily": {
+                      "be-vietnam-pro": ["Be Vietnam Pro"],
+                      "plus-jakarta-sans": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "headline-lg": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "headline-xl": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "stat-bean": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background min-h-screen overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="bg-orange-50/80 dark:bg-zinc-900/80 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm shadow-orange-100/50 dark:shadow-none flex justify-between items-center h-16 px-6">
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-orange-100/50 transition-colors">
+<span class="material-symbols-outlined text-orange-600">arrow_back</span>
+</button>
+<h1 class="font-be-vietnam-pro text-sm font-semibold tracking-tight text-orange-500">上海 · 晴 24°C</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-orange-100/50 transition-colors">
+<span class="material-symbols-outlined text-orange-500">notifications</span>
+</button>
+</div>
+</header>
+<!-- Map Section (Real-time map style) -->
+<section class="fixed top-0 left-0 w-full h-[397px] z-0 overflow-hidden">
+<div class="w-full h-full relative">
+<img class="w-full h-full object-cover opacity-90" data-alt="Minimalist map with travel route connected by dashed lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJSbDaSpOwFOwQfNcJ8opihu3An80lYLidjAyPCrSMpzUJUE0eikGyvp_DQhDt2qbttgdi1d7y8qTE-2pISWikieEp9nrKsY8BfoPq1UAqdeXcDja5RDLDGcDEfdz21FHOsSDwhCA9Z3S8wPAsdtjBf2WSvGxUj917LEo4jaliQTIMdrAny5qjEllxnAs8dNiTfYfdb7Ac9wpPr5_VveLZJLHtaJ6BIr5JZY_BHUfmfsimBfcFnHwMYwjES56q4nTofLnpVzxcbpA"/>
+<!-- Path and Waypoints Overlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" viewbox="0 0 400 400">
+<path d="M100 130 L200 200 L300 280" fill="none" opacity="0.6" stroke="#a53c02" stroke-dasharray="6 4" stroke-width="3"></path>
+</svg>
+<!-- Numbered Markers -->
+<div class="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2">
+<div class="w-8 h-8 rounded-full bg-primary border-2 border-white shadow-lg flex items-center justify-center text-white font-bold text-xs">1</div>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="w-8 h-8 rounded-full bg-primary border-2 border-white shadow-lg flex items-center justify-center text-white font-bold text-xs">2</div>
+</div>
+<div class="absolute bottom-1/3 right-1/4 -translate-x-1/2 -translate-y-1/2">
+<div class="w-8 h-8 rounded-full bg-primary border-2 border-white shadow-lg flex items-center justify-center text-white font-bold text-xs">3</div>
+</div>
+</div>
+</section>
+<!-- Drawer Section -->
+<main class="relative mt-[353px] z-20 min-h-[530px] bg-surface rounded-t-[32px] shadow-[0_-8px_30px_rgba(0,0,0,0.08)] pb-40">
+<!-- Handlebar -->
+<div class="flex justify-center py-4">
+<div class="w-10 h-1.5 bg-outline-variant rounded-full opacity-50"></div>
+</div>
+<div class="px-margin-page">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<span class="font-label-caps text-primary uppercase tracking-widest bg-warm-orange px-2 py-0.5 rounded">治愈专线</span>
+<h2 class="font-be-vietnam-pro text-headline-xl mt-2">安福路：梧桐树下的呼吸</h2>
+<p class="font-plus-jakarta-sans text-body-md text-text-secondary mt-1">适合人群：感到有些疲惫，想一个人静静的你</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white overflow-hidden bg-gray-100">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjV2gABNk5Z-y59qAC8z0BSfnyRAFxx2ermdOnS44RkC3NTzydcTxa9Lx57zRBxO4jxjYyB5fsEyTlBISyJ4JQ8yypL2oTPzu9sUz7-kMEbM_BS6BtQEvUpOr4HeIZfuivsNS50kG5dF3cYAMjHcfPWvD2mK7Fc6y8eZbFJk2UXdau9ft_91IXj3B0P1KJf8MWisSFAedjDD0vBX-VWtKVJvT-n8tkMblxjsigVTikmcYgSAEOzpF5gbYdZcSkhHXG3R4F6Qv0n3w"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white overflow-hidden bg-gray-100">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7UUiGuP95SwOdZEqAOhq18MF6ixz_FomgSCImwaJxYvogbbmdZuZbtFuKPVj1vkjZGxSb799bzMk87mmJYg_d6GkuJMIwVhx7vqMJUfmENYqbrhUahMNKNqj9wJTh6jDMGz6HjjJzsmf4c8rC62a5w36KvE7hK9P5rHj3VEOS85HJX1kr4RvD9tAnR5bGEoWOX5rLHn1IByGzb2fLasEqzfHhybTgXBi4DK38cNOXffcv7p2S81N1PqS4TraruOaYOpK1G4E99rw"/>
+</div>
+</div>
+<span class="text-[10px] text-text-secondary mt-1">1.2w+ 人走过</span>
+</div>
+</div>
+<!-- Route Planning List (Styled like SCREEN_62) -->
+<div class="space-y-4">
+<!-- Point 1 -->
+<div class="relative flex gap-4 timeline-line pb-4">
+<div class="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary ring-4 ring-surface">
+<span class="material-symbols-outlined text-[14px] text-on-primary" style="font-variation-settings: 'FILL' 1;">theater_comedy</span>
+</div>
+<div class="flex flex-1 flex-col gap-2 bg-surface-container-low p-3 rounded-xl border border-outline-variant/10 shadow-sm">
+<div class="flex gap-3">
+<div class="size-20 shrink-0 overflow-hidden rounded-lg">
+<img class="h-full w-full object-cover" data-alt="Drama center interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8Ktxc0lwNEfnN-N2ia9De0VzDZEX2mYGMFnynWt-DDc4EFFf9BlQ-K2BZl-EakzVpjZ2VwGsnuWLfTA5NOZ7h3bIQTA05_6IdjzXgoXy_mhZADAFEhhIyR54yhDWQt7ieOyoZrYvoA1BbEBDqNRf5DmaEpxK7X1zksjchAEJX-h7WDXiNhMF6fof_cC17p8ATd6UWGjBj5OwOm6UCfjjzgk1XgI-h8-Ko8guIMvYnan0pu2sKkpJlBIvlubzJrL2a9feblQxsumg"/>
+</div>
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<h4 class="text-on-surface font-bold text-body-lg">话剧艺术中心</h4>
+<div class="flex gap-2 flex-wrap">
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-healing-green text-on-secondary-container font-medium">#安静空间</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-quiet-blue text-on-surface-variant font-medium">#艺术感</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs leading-relaxed">在这座城市的心脏，感受戏剧张力。即便不看戏，在大堂坐坐也很舒服。</p>
+</div>
+</div>
+<!-- Walk Distance Indicator -->
+<div class="relative flex gap-4 pl-1 ml-[11px] h-10 items-center">
+<div class="absolute left-[-1px] top-0 bottom-0 border-l-2 border-dashed border-outline-variant"></div>
+<div class="flex items-center gap-2 bg-surface-container-highest/30 px-3 py-1 rounded-full border border-outline-variant/20 ml-4 mb-2">
+<span class="material-symbols-outlined text-[14px] text-bean-brown">directions_walk</span>
+<span class="text-[11px] text-bean-brown font-semibold">650m · 步行 9min</span>
+</div>
+</div>
+<!-- Point 2 -->
+<div class="relative flex gap-4 timeline-line pb-4">
+<div class="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary ring-4 ring-surface">
+<span class="material-symbols-outlined text-[14px] text-on-primary" style="font-variation-settings: 'FILL' 1;">local_cafe</span>
+</div>
+<div class="flex flex-1 flex-col gap-2 bg-surface-container-low p-3 rounded-xl border border-outline-variant/10 shadow-sm">
+<div class="flex gap-3">
+<div class="size-20 shrink-0 overflow-hidden rounded-lg">
+<img class="h-full w-full object-cover" data-alt="Iced coffee specialty" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIdj1IMhZLpsaj9Q2wPA_yUl3V6_rKfi08vAy0mMAWwVPwBpwBVakDCWwAcJj2fTcNcSEXxwMzUnlcZcwMzIQlRXtMJb24fblPCRuC68LEQSjdSS8DPwQTb1dw2KR9RFjyo171AoWnv6J3iM55wXJqkY80WurfPgbWUHpjsS5TOvWUb54oB8SZw25AyHdIjj4pJ2ajuSNSl4Luv_hIwUEw-7GAwxIEY3lJlIbk506YVhiul1xmegdPLBldHLOxh_yFyieKY2taJsU"/>
+</div>
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<h4 class="text-on-surface font-bold text-body-lg">Into_the_Force 原力飞行</h4>
+<div class="flex gap-2 flex-wrap">
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-warm-orange text-on-primary-container font-medium">#必喝推荐</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-healing-green text-on-secondary-container font-medium">#氛围感</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs leading-relaxed">来一杯“安福路”限定特调，坐在路边看梧桐影影绰绰，是这趟行程的灵魂。</p>
+</div>
+</div>
+<!-- Walk Distance Indicator -->
+<div class="relative flex gap-4 pl-1 ml-[11px] h-10 items-center">
+<div class="absolute left-[-1px] top-0 bottom-0 border-l-2 border-dashed border-outline-variant"></div>
+<div class="flex items-center gap-2 bg-surface-container-highest/30 px-3 py-1 rounded-full border border-outline-variant/20 ml-4 mb-2">
+<span class="material-symbols-outlined text-[14px] text-bean-brown">directions_walk</span>
+<span class="text-[11px] text-bean-brown font-semibold">1.2km · 步行 16min</span>
+</div>
+</div>
+<!-- Point 3 -->
+<div class="relative flex gap-4 pb-4">
+<div class="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary ring-4 ring-surface">
+<span class="material-symbols-outlined text-[14px] text-on-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="flex flex-1 flex-col gap-2 bg-surface-container-low p-3 rounded-xl border border-outline-variant/10 shadow-sm">
+<div class="flex gap-3">
+<div class="size-20 shrink-0 overflow-hidden rounded-lg">
+<img class="h-full w-full object-cover" data-alt="Wukang Mansion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEZD8-t2ECbrWIk09VnBxslk466lenUJMw4JjeEsTrm4bZUrksBRS2AIuN8HzUYS-6XtlbkumRxYD0p4DN09M5pva2MwsossqBRIw12PhoUu4VIUVV9DGGoNz4rJXpf-liOVoESSit5RmnYPbCJj33LCS_SyxXqSvbQPmHYS5nqWq3HEqvhrBauONV_H0dz9JmhujQXzXPv6Uk5fu6PxILBGdHAWKbc764Hc25mZQMZUgT84pRuTyKZp85rPArPTWPI8VlwntA8Mw"/>
+</div>
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<h4 class="text-on-surface font-bold text-body-lg">武康大楼观景点</h4>
+<div class="flex gap-2 flex-wrap">
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-quiet-blue text-blue-600 font-medium">#建筑之美</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-healing-green text-on-secondary-container font-medium">#终点</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs leading-relaxed">行程的终点，经典的建筑总是给人稳定的力量。在这里深呼吸，结束今天的漫游。</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Actions -->
+<footer class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl p-margin-page border-t border-orange-100/30 flex flex-col gap-3">
+<button class="w-full h-14 bg-primary text-on-primary rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">directions_run</span>
+<span>启程旅行</span>
+</button>
+<button class="w-full h-12 bg-surface-container-low text-on-surface rounded-2xl font-semibold flex flex-col items-center justify-center transition-colors hover:bg-surface-container active:scale-95">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">refresh</span>
+<span>重新生成</span>
+</div>
+<span class="text-[10px] text-text-secondary opacity-80">消耗 40 豆子</span>
+</button>
+</footer>
+<!-- Bottom Navigation Bar (Optional, usually hidden during active route view but kept for consistency) -->
+<nav class="fixed bottom-0 w-full z-40 hidden rounded-t-[32px] border-t border-orange-100/30 bg-white/90 backdrop-blur-xl flex justify-around items-center h-20 px-4">
+<!-- Navigation items here if needed, hidden to prioritize footer actions -->
+</nav>
+</body></html>
